@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Befekadu Berhanu</title>
+<meta name="description" content="Befekadu Berhanu: computer engineer, software development mentor and founder of Endebeto Tourism, an AI-enabled travel platform for Ethiopia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f4ef; --surface:#ffffff; --ink:#15171b; --muted:#5d626a; --line:#e4e0d7;
+  --accent:#0f7a5c; --accent-soft:#dcefe7; --gold:#c98a1b; --gold-soft:#f7ead0;
+  --card-1:#15171b; --card-1-ink:#f3f1ec;
+  --card-2:#0f7a5c; --card-2-ink:#f1fbf6;
+  --card-3:#ffffff; --card-3-ink:#15171b;
+  --card-4:#f7ead0; --card-4-ink:#2a2010;
+  --shadow:0 1px 2px rgba(20,22,27,.05),0 12px 40px -12px rgba(20,22,27,.18);
+  --radius:22px; --max:1120px;
+  --serif:"Fraunces",Georgia,serif; --sans:"Inter",system-ui,-apple-system,Segoe UI,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1013; --surface:#16191d; --ink:#eceae5; --muted:#9a9fa7; --line:#262a30;
+    --accent:#3fc596; --accent-soft:#12302a; --gold:#e8b453; --gold-soft:#2c2414;
+    --card-1:#1b1f24; --card-1-ink:#eceae5; --card-2:#0f5f49; --card-2-ink:#eafaf3;
+    --card-3:#20252b; --card-3-ink:#eceae5; --card-4:#3a2f19; --card-4-ink:#f7ead0;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 16px 50px -12px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1013; --surface:#16191d; --ink:#eceae5; --muted:#9a9fa7; --line:#262a30;
+  --accent:#3fc596; --accent-soft:#12302a; --gold:#e8b453; --gold-soft:#2c2414;
+  --card-1:#1b1f24; --card-1-ink:#eceae5; --card-2:#0f5f49; --card-2-ink:#eafaf3;
+  --card-3:#20252b; --card-3-ink:#eceae5; --card-4:#3a2f19; --card-4-ink:#f7ead0;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 16px 50px -12px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacing:-.015em}
+h2{font-size:clamp(2rem,4.5vw,3.1rem);margin:.4rem 0 1rem}
+em{font-style:italic;color:var(--accent)}
+.lead{color:var(--muted);font-size:1.08rem;max-width:56ch}
+section{padding:110px 0}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+.nav.scrolled{background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:var(--serif);font-size:1.35rem}
+.logo span{color:var(--accent)}
+.nav ul{display:flex;gap:28px;list-style:none;font-size:.92rem;color:var(--muted)}
+.nav ul a:hover{color:var(--ink)}
+.nav-right{display:flex;gap:10px;align-items:center}
+.icon-btn{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--surface);display:grid;place-items:center;cursor:pointer;color:var(--ink)}
+.icon-btn svg{width:17px;height:17px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:500;font-size:.95rem;transition:transform .2s,background .2s,box-shadow .2s}
+.btn-primary{background:var(--ink);color:var(--bg)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.btn-ghost{border:1px solid var(--line);background:var(--surface)}
+.btn-ghost:hover{border-color:var(--ink)}
+.btn svg{width:16px;height:16px}
+
+/* hero */
+.hero{padding:150px 0 90px;position:relative}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}
+.status{display:inline-flex;align-items:center;gap:10px;padding:6px 14px 6px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-size:.85rem;color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 var(--accent);animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 60%,transparent)}70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.hero h1{font-size:clamp(2.7rem,6.6vw,5.1rem);margin:22px 0 22px}
+.hero .lead{margin-bottom:34px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hero-meta{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:20px 36px;margin-top:48px;padding-top:28px;border-top:1px solid var(--line)}
+@media (max-width:560px){.hero-meta{grid-template-columns:1fr 1fr}}
+.hero-meta b{display:block;font-family:var(--serif);font-size:1.7rem;font-weight:400}
+.hero-meta span{font-size:.85rem;color:var(--muted)}
+
+.portrait{position:relative}
+.portrait-frame{border-radius:28px;overflow:hidden;aspect-ratio:4/5;box-shadow:var(--shadow);transform:rotate(1.5deg);background:var(--line)}
+.portrait-frame img{width:100%;height:100%;object-fit:cover;object-position:62% 38%}
+.portrait figcaption{position:absolute;left:18px;bottom:18px;transform:rotate(1.5deg);background:rgba(15,17,20,.72);color:#fff;font-size:.78rem;padding:6px 12px;border-radius:999px;backdrop-filter:blur(6px)}
+.badge{position:absolute;display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:10px 14px;box-shadow:var(--shadow);font-size:.82rem;line-height:1.3;animation:float 6s ease-in-out infinite}
+.badge small{display:block;color:var(--muted);font-size:.74rem}
+.badge .ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex:none}
+.badge .ic svg{width:18px;height:18px}
+.badge.b1{top:28px;left:-44px}
+.badge.b1 .ic{background:var(--gold-soft);color:var(--gold)}
+.badge.b2{bottom:70px;right:-30px;animation-delay:-3s}
+.badge.b2 .ic{background:var(--accent-soft);color:var(--accent)}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+/* experience stack */
+.exp-head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:56px}
+.stack{position:relative}
+.stack-card{position:sticky;top:calc(100px + var(--i) * 24px);margin-bottom:34px;border-radius:var(--radius);padding:44px;min-height:340px;display:grid;grid-template-columns:200px 1fr;gap:40px;box-shadow:var(--shadow);transform-origin:center top;will-change:transform;border:1px solid rgba(127,127,127,.12)}
+.stack-card:last-child{margin-bottom:0}
+.c1{background:var(--card-1);color:var(--card-1-ink)}
+.c2{background:var(--card-2);color:var(--card-2-ink)}
+.c3{background:var(--card-3);color:var(--card-3-ink)}
+.c4{background:var(--card-4);color:var(--card-4-ink)}
+.stack-card .when{display:flex;flex-direction:column;justify-content:space-between}
+.year{font-family:var(--serif);font-size:3.4rem;line-height:1;letter-spacing:-.03em}
+.num{font-size:.8rem;opacity:.6;letter-spacing:.12em}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 11px;border-radius:999px;border:1px solid currentColor;opacity:.85;margin-bottom:18px}
+.stack-card h3{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:6px}
+.stack-card .org{opacity:.72;margin-bottom:18px;font-size:.98rem}
+.stack-card p.desc{opacity:.86;max-width:58ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chips span{font-size:.8rem;padding:6px 12px;border-radius:999px;background:rgba(127,127,127,.14)}
+.card-link{display:inline-flex;align-items:center;gap:8px;margin-top:24px;font-weight:500;border-bottom:1px solid currentColor;padding-bottom:2px}
+.card-link svg{width:15px;height:15px;transition:transform .2s}
+.card-link:hover svg{transform:translate(3px,-3px)}
+
+/* endebeto feature */
+.feature{background:var(--surface);border:1px solid var(--line);border-radius:30px;padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;overflow:hidden;position:relative}
+.feature ul{list-style:none;display:grid;gap:14px;margin:26px 0 32px}
+.feature li{display:flex;gap:12px;color:var(--muted)}
+.feature li svg{width:20px;height:20px;flex:none;color:var(--accent);margin-top:3px}
+.browser{border-radius:18px;border:1px solid var(--line);background:var(--bg);overflow:hidden;box-shadow:var(--shadow)}
+.browser-bar{display:flex;align-items:center;gap:6px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.browser-bar i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.browser-bar .url{margin-left:10px;flex:1;font-size:.78rem;color:var(--muted);background:var(--surface);border-radius:8px;padding:5px 10px}
+.browser-body{padding:26px;display:grid;gap:14px}
+.chat{max-width:88%;padding:12px 16px;border-radius:16px;font-size:.88rem;line-height:1.45;opacity:0;transform:translateY(8px);transition:opacity .5s,transform .5s}
+.chat.show{opacity:1;transform:none}
+.chat.user{justify-self:end;background:var(--ink);color:var(--bg);border-bottom-right-radius:4px}
+.chat.ai{background:var(--accent-soft);color:var(--ink);border-bottom-left-radius:4px}
+.chat.ai b{color:var(--accent)}
+.trip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.trip div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px;font-size:.78rem;color:var(--muted)}
+.trip div b{display:block;color:var(--ink);font-size:.86rem;font-weight:600}
+
+/* awards */
+.awards{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:20px;margin-top:48px}
+.award{border-radius:var(--radius);padding:32px;border:1px solid var(--line);background:var(--surface);position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.award:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.award .yr{font-size:.8rem;font-weight:600;letter-spacing:.12em;color:var(--muted)}
+.award h3{font-size:1.5rem;margin:14px 0 10px}
+.award p{color:var(--muted);font-size:.93rem}
+.award .medal{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;margin-bottom:22px;background:var(--accent-soft);color:var(--accent)}
+.award .medal svg{width:22px;height:22px}
+.award.hl{background:linear-gradient(150deg,var(--gold-soft),var(--surface) 75%);border-color:color-mix(in srgb,var(--gold) 35%,var(--line))}
+.award.hl .medal{background:var(--gold);color:#fff}
+.award.hl h3{font-size:1.9rem}
+.award.hl::after{content:"";position:absolute;inset:-40%;background:conic-gradient(from 0deg,transparent 0 80%,color-mix(in srgb,var(--gold) 25%,transparent) 90%,transparent);animation:spin 9s linear infinite;pointer-events:none;mix-blend-mode:multiply}
+@keyframes spin{to{transform:rotate(1turn)}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px}
+.skill{padding:28px;border-top:2px solid var(--ink)}
+.skill h4{font-family:var(--serif);font-weight:400;font-size:1.3rem;margin-bottom:10px}
+.skill p{color:var(--muted);font-size:.92rem}
+
+/* footer */
+footer{position:relative;margin-top:60px;background:#0b0d10;color:#eceae5;overflow:hidden;isolation:isolate}
+#waves{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+footer::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(60% 50% at 50% 0%,rgba(63,197,150,.18),transparent 70%)}
+.marquee{border-bottom:1px solid rgba(255,255,255,.08);overflow:hidden;padding:18px 0;white-space:nowrap}
+.marquee-track{display:inline-flex;gap:48px;animation:marquee 32s linear infinite;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(236,234,229,.55)}
+.marquee-track span::after{content:"✦";margin-left:48px;color:#3fc596}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.foot-main{padding:100px 0 60px;text-align:center}
+.foot-main .eyebrow{color:#3fc596}
+.big{font-family:var(--serif);font-size:clamp(3rem,11vw,9rem);line-height:.95;letter-spacing:-.04em;margin:18px 0 36px;background:linear-gradient(100deg,#eceae5 20%,#3fc596 40%,#e8b453 50%,#eceae5 65%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 7s ease-in-out infinite}
+@keyframes sheen{0%,100%{background-position:100% 0}50%{background-position:0 0}}
+.foot-main .btn-primary{background:#eceae5;color:#0b0d10}
+.socials{display:flex;justify-content:center;gap:12px;margin-top:34px;flex-wrap:wrap}
+.socials a{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.14);font-size:.88rem;color:rgba(236,234,229,.8);transition:border-color .2s,color .2s,background .2s}
+.socials a:hover{border-color:#3fc596;color:#fff;background:rgba(63,197,150,.08)}
+.socials svg{width:16px;height:16px}
+.foot-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:22px 0 30px;border-top:1px solid rgba(255,255,255,.08);font-size:.82rem;color:rgba(236,234,229,.5)}
+.foot-bottom a:hover{color:#fff}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .nav ul{display:none}
+  .hero{padding-top:120px}
+  .hero .wrap,.feature{grid-template-columns:minmax(0,1fr)}
+  .hero .wrap>*,.feature>*,.stack-card>*{min-width:0}
+  .portrait{max-width:420px;margin:0 auto;width:100%}
+  .badge.b1{left:-8px}.badge.b2{right:-8px}
+  .stack-card{grid-template-columns:minmax(0,1fr);gap:22px;padding:30px;top:calc(84px + var(--i) * 14px)}
+  .stack-card .when{flex-direction:row;align-items:baseline;justify-content:space-between}
+  .year{font-size:2.4rem}
+  .awards,.skills{grid-template-columns:1fr 1fr}
+  .award.hl{grid-column:1/-1}
+  .feature{padding:30px}
+  section{padding:80px 0}
+}
+@media (max-width:560px){
+  .wrap{padding:0 16px}
+  .awards,.skills{grid-template-columns:1fr}
+  .hero-meta{gap:24px}
+  .trip{grid-template-columns:1fr 1fr}
+  .trip div:last-child{display:none}
+  .nav-right .btn{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  .chat{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
+  <symbol id="trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></symbol>
+  <symbol id="shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></symbol>
+  <symbol id="mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.5h4V21H3V9.5Zm7 0h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4V9.5Z"/></symbol>
+  <symbol id="github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></symbol>
+  <symbol id="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></symbol>
+  <symbol id="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="logo">Befekadu<span>.</span></a>
+    <ul>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#endebeto">Endebeto</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#skills">Skills</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle dark mode"><svg><use href="#moon"/></svg></button>
+      <a href="#contact" class="btn btn-primary">Get in touch</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="status reveal"><span class="dot"></span>Founder at Endebeto · Software Development Mentor</span>
+        <h1 class="reveal">Building technology that <em>moves Ethiopia</em> forward.</h1>
+        <p class="lead reveal">I'm Befekadu Berhanu, a computer engineer from Addis Ababa. I build secure, scalable software, mentor new developers, and lead Endebeto, an AI-enabled platform for discovering Ethiopia.</p>
+        <div class="hero-ctas reveal">
+          <a href="#experience" class="btn btn-primary">View my journey <svg><use href="#arrow"/></svg></a>
+          <a href="https://endebeto.com" target="_blank" rel="noopener" class="btn btn-ghost">Visit endebeto.com</a>
+        </div>
+        <div class="hero-meta reveal">
+          <div><b>2025</b><span>Innovative Project of the Year</span></div>
+          <div><b>INSA</b><span>National Digital Talent, 2024</span></div>
+          <div><b>B.Sc.</b><span>Computer Engineering, UoG</span></div>
+        </div>
+      </div>
+      <figure class="portrait reveal">
+        <div class="portrait-frame"><img src="assets/befekadu.jpg" alt="Befekadu Berhanu speaking at a Cyber Talent event"></div>
+        <figcaption>Speaking at the 5th Round Cyber Talent program</figcaption>
+        <div class="badge b1"><span class="ic"><svg><use href="#trophy"/></svg></span><div>Project of the Year<small>2025 · Agriculture</small></div></div>
+        <div class="badge b2"><span class="ic"><svg><use href="#shield"/></svg></span><div>INSA Talent<small>Class of 2024</small></div></div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="exp-head">
+        <div>
+          <span class="eyebrow reveal">Experience</span>
+          <h2 class="reveal">The journey, <em>card by card</em>.</h2>
+        </div>
+        <p class="lead reveal" style="max-width:40ch">From leading a campus innovation program to founding an AI-powered tourism platform. Keep scrolling and each role stacks onto the one before.</p>
+      </div>
+
+      <div class="stack" id="stack">
+        <article class="stack-card c1" style="--i:0">
+          <div class="when"><span class="num">01 / 04</span><span class="year">Now</span></div>
+          <div>
+            <span class="tag">Founder</span>
+            <h3>Endebeto Tourism</h3>
+            <div class="org">AI-enabled tourism platform · endebeto.com</div>
+            <p class="desc">Leading the product and engineering vision for a platform that helps travellers discover, plan and book authentic experiences across Ethiopia, with AI-assisted trip planning at its core.</p>
+            <div class="chips"><span>Product leadership</span><span>AI integration</span><span>Cloud architecture</span><span>Team building</span></div>
+            <a class="card-link" href="https://endebeto.com" target="_blank" rel="noopener">endebeto.com <svg><use href="#arrow"/></svg></a>
+          </div>
+        </article>
+
+        <article class="stack-card c2" style="--i:1">
+          <div class="when"><span class="num">02 / 04</span><span class="year">Now</span></div>
+          <div>
+            <span class="tag">Current role</span>
+            <h3>Software Development Mentor</h3>
+            <div class="org">Mentoring emerging developers and tech talent</div>
+            <p class="desc">Guiding the next generation of engineers through real-world projects, code reviews and career growth, and sharing what I've learned about building secure, production-ready software.</p>
+            <div class="chips"><span>Mentorship</span><span>Code review</span><span>Public speaking</span></div>
+          </div>
+        </article>
+
+        <article class="stack-card c3" style="--i:2">
+          <div class="when"><span class="num">03 / 04</span><span class="year">2024</span></div>
+          <div>
+            <span class="tag">Talent Trainee</span>
+            <h3>INSA Talent Program</h3>
+            <div class="org">Information Network Security Administration</div>
+            <p class="desc">Selected as a national digital talent. Built security automation and audit tools in Go and Python, with monitoring and observability to keep critical infrastructure healthy.</p>
+            <div class="chips"><span>Go</span><span>Python</span><span>Security tooling</span><span>Observability</span></div>
+          </div>
+        </article>
+
+        <article class="stack-card c4" style="--i:3">
+          <div class="when"><span class="num">04 / 04</span><span class="year">2023</span></div>
+          <div>
+            <span class="tag">Leadership</span>
+            <h3>Hult Prize Campus Director</h3>
+            <div class="org">University of Gondar</div>
+            <p class="desc">Led the campus Hult Prize program, running innovation and social entrepreneurship competitions for over 1,000 students and mentoring startup teams.</p>
+            <div class="chips"><span>Entrepreneurship</span><span>Event leadership</span><span>Community</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENDEBETO -->
+  <section id="endebeto">
+    <div class="wrap">
+      <div class="feature reveal">
+        <div>
+          <span class="eyebrow">Featured venture</span>
+          <h2>Endebeto, <em>travel Ethiopia smarter</em>.</h2>
+          <p class="lead">An AI-enabled tourism platform that turns Ethiopia's rich destinations, culture and local hosts into personalised, bookable journeys.</p>
+          <ul>
+            <li><svg><use href="#check"/></svg>AI trip planning tailored to each traveller</li>
+            <li><svg><use href="#check"/></svg>Connects visitors with authentic local experiences</li>
+            <li><svg><use href="#check"/></svg>Built on secure, scalable cloud infrastructure</li>
+          </ul>
+          <a href="https://endebeto.com" target="_blank" rel="noopener" class="btn btn-primary">Explore endebeto.com <svg><use href="#arrow"/></svg></a>
+        </div>
+        <div class="browser" id="browser">
+          <div class="browser-bar"><i></i><i></i><i></i><span class="url">endebeto.com</span></div>
+          <div class="browser-body">
+            <div class="chat user">Plan me 5 days of history and nature in northern Ethiopia.</div>
+            <div class="chat ai"><b>Endebeto AI:</b> Here's a route through Lalibela's rock-hewn churches, the Simien Mountains and Gondar's castles.</div>
+            <div class="trip chat">
+              <div><b>Day 1–2</b>Lalibela</div>
+              <div><b>Day 3–4</b>Simien</div>
+              <div><b>Day 5</b>Gondar</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AWARDS -->
+  <section id="awards" style="padding-top:20px">
+    <div class="wrap">
+      <span class="eyebrow reveal">Recognition</span>
+      <h2 class="reveal">Awards &amp; <em>milestones</em>.</h2>
+      <div class="awards">
+        <div class="award hl reveal">
+          <div class="medal"><svg><use href="#trophy"/></svg></div>
+          <span class="yr">2025 · AGRICULTURE</span>
+          <h3>Innovative Project of the Year</h3>
+          <p>Recognised by the Ministry of Innovation &amp; Technology for an innovative project in the agriculture category.</p>
+        </div>
+        <div class="award reveal">
+          <div class="medal"><svg><use href="#shield"/></svg></div>
+          <span class="yr">2024</span>
+          <h3>National Digital Talent</h3>
+          <p>Selected by INSA for excellence in security innovation.</p>
+        </div>
+        <div class="award reveal">
+          <div class="medal"><svg><use href="#spark"/></svg></div>
+          <span class="yr">2022–2023</span>
+          <h3>Hult Prize &amp; Mastercard Foundation</h3>
+          <p>Campus leadership and the BUILD-in-a-Box entrepreneurship program.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" style="padding-top:20px">
+    <div class="wrap">
+      <span class="eyebrow reveal">What I work with</span>
+      <h2 class="reveal">Skills, <em>at a glance</em>.</h2>
+      <div class="skills">
+        <div class="skill reveal"><h4>Backend</h4><p>Python, Go, Node.js, FastAPI, Django, REST APIs</p></div>
+        <div class="skill reveal"><h4>Frontend</h4><p>React and modern web interfaces with the MERN stack</p></div>
+        <div class="skill reveal"><h4>Cloud &amp; Security</h4><p>AWS, Docker, CI/CD, security tooling, monitoring</p></div>
+        <div class="skill reveal"><h4>Leadership</h4><p>Product management, mentorship, team building</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <canvas id="waves" aria-hidden="true"></canvas>
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Software Engineering</span><span>AI Products</span><span>Endebeto Tourism</span><span>Mentorship</span><span>Cyber Security</span><span>Addis Ababa</span>
+      <span>Software Engineering</span><span>AI Products</span><span>Endebeto Tourism</span><span>Mentorship</span><span>Cyber Security</span><span>Addis Ababa</span>
+    </div>
+  </div>
+  <div class="wrap foot-main">
+    <span class="eyebrow">Let's work together</span>
+    <div class="big">Let's build.</div>
+    <a href="mailto:befekaduberhanu4@gmail.com" class="btn btn-primary"><svg><use href="#mail"/></svg>befekaduberhanu4@gmail.com</a>
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/befekaduberhanu" target="_blank" rel="noopener"><svg><use href="#linkedin"/></svg>LinkedIn</a>
+      <a href="https://github.com/abawu" target="_blank" rel="noopener"><svg><use href="#github"/></svg>GitHub</a>
+      <a href="https://endebeto.com" target="_blank" rel="noopener"><svg><use href="#arrow"/></svg>endebeto.com</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© <span id="yr"></span> Befekadu Berhanu · Addis Ababa, Ethiopia</span>
+    <a href="#top">Back to top ↑</a>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const root = document.documentElement;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // theme toggle
+  const btn = document.getElementById('themeBtn');
+  const isDark = () => root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  const syncIcon = () => btn.querySelector('use').setAttribute('href', isDark() ? '#sun' : '#moon');
+  try { const t = localStorage.getItem('theme'); if (t) root.dataset.theme = t; } catch (e) {}
+  syncIcon();
+  btn.addEventListener('click', () => {
+    root.dataset.theme = isDark() ? 'light' : 'dark';
+    try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+    syncIcon();
+  });
+
+  // nav background
+  const nav = document.getElementById('nav');
+  const onNav = () => nav.classList.toggle('scrolled', scrollY > 20);
+  addEventListener('scroll', onNav, { passive: true }); onNav();
+
+  // reveal on scroll
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), { threshold: .15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // chat demo
+  const chats = document.querySelectorAll('#browser .chat');
+  new IntersectionObserver((es, o) => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    chats.forEach((c, i) => setTimeout(() => c.classList.add('show'), reduce ? 0 : 400 + i * 900));
+    o.disconnect();
+  }), { threshold: .4 }).observe(document.getElementById('browser'));
+
+  // stacking cards: earlier cards shrink and dim as later ones slide over them
+  const cards = [...document.querySelectorAll('.stack-card')];
+  let ticking = false;
+  const stackFx = () => {
+    ticking = false;
+    cards.forEach((card, i) => {
+      const next = cards[i + 1];
+      if (!next || reduce) { card.style.transform = ''; card.style.filter = ''; return; }
+      const a = card.getBoundingClientRect(), b = next.getBoundingClientRect();
+      const p = Math.min(Math.max(1 - (b.top - a.top) / a.height, 0), 1); // 0..1 as next covers card
+      const depth = cards.length - 1 - i;
+      card.style.transform = `scale(${1 - p * 0.04 * depth})`;
+      card.style.filter = `brightness(${1 - p * 0.18})`;
+    });
+  };
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(stackFx); } }, { passive: true });
+  addEventListener('resize', stackFx); stackFx();
+
+  // animated footer: flowing contour lines that bend toward the pointer
+  const cv = document.getElementById('waves'), ctx = cv.getContext('2d');
+  const foot = document.getElementById('contact');
+  let W, H, dpr, t = 0, mx = .5, my = .5, tmx = .5, tmy = .5, running = false;
+  const size = () => {
+    dpr = Math.min(devicePixelRatio || 1, 2);
+    W = foot.clientWidth; H = foot.clientHeight;
+    cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  };
+  foot.addEventListener('pointermove', e => {
+    const r = foot.getBoundingClientRect(); tmx = (e.clientX - r.left) / r.width; tmy = (e.clientY - r.top) / r.height;
+  });
+  const LINES = 26;
+  const draw = () => {
+    ctx.clearRect(0, 0, W, H);
+    mx += (tmx - mx) * .05; my += (tmy - my) * .05;
+    for (let l = 0; l < LINES; l++) {
+      const k = l / (LINES - 1);
+      const baseY = H * (.18 + k * .9);
+      ctx.beginPath();
+      for (let x = 0; x <= W; x += 8) {
+        const nx = x / W;
+        const pull = Math.exp(-((nx - mx) ** 2) * 18) * Math.exp(-((k - my) ** 2) * 6) * 46;
+        const y = baseY
+          + Math.sin(nx * 6 + t * .9 + l * .35) * 14
+          + Math.sin(nx * 13 - t * .6 + l * .2) * 6
+          - pull;
+        x ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
+      }
+      const g = ctx.createLinearGradient(0, 0, W, 0);
+      const a = .05 + .22 * Math.sin(k * Math.PI);
+      g.addColorStop(0, `rgba(63,197,150,${a * .3})`);
+      g.addColorStop(.5, `rgba(63,197,150,${a})`);
+      g.addColorStop(1, `rgba(232,180,83,${a * .7})`);
+      ctx.strokeStyle = g; ctx.lineWidth = 1; ctx.stroke();
+    }
+    t += .012;
+    if (running) requestAnimationFrame(draw);
+  };
+  size(); addEventListener('resize', size);
+  if (reduce) { draw(); }
+  else new IntersectionObserver(es => es.forEach(e => {
+    const was = running; running = e.isIntersecting;
+    if (running && !was) requestAnimationFrame(draw);
+  })).observe(foot);
+})();
+</script>
+</body>
+</html>
