@@ -40,15 +40,15 @@ function clientHtml(name, summary) {
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f2ed;padding:32px 12px">
 <tr><td align="center">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border-radius:14px;overflow:hidden;font-family:Arial,Helvetica,sans-serif">
-    <tr><td style="background:#15171b;padding:26px 32px">
+    <tr><td style="background:#3448FF;padding:26px 32px">
       <div style="color:#ffffff;font-size:20px;font-weight:bold;letter-spacing:-.2px">Befekadu Berhanu</div>
-      <div style="color:#3fc596;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;margin-top:4px">Founder, Endebeto Tech · Software Developer</div>
+      <div style="color:#ffffff;opacity:.85;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;margin-top:4px">Founder, Endebeto Tech · Software Developer</div>
     </td></tr>
     <tr><td style="padding:32px 32px 8px;color:#33373d;font-size:15px;line-height:1.65">
       <p style="margin:0 0 16px">Dear ${esc(name)},</p>
       <p style="margin:0 0 22px">Thank you for reaching out and requesting a meeting. I have received your request and will review the details shortly.</p>
-      <div style="border:1px solid #e6e2d9;border-left:4px solid #0f7a5c;border-radius:10px;padding:14px 20px;margin:0 0 22px">
-        <div style="font-size:11px;font-weight:bold;letter-spacing:1.4px;text-transform:uppercase;color:#0f7a5c;margin-bottom:4px">Your request</div>
+      <div style="border:1px solid #e6e2d9;border-left:4px solid #3448FF;border-radius:10px;padding:14px 20px;margin:0 0 22px">
+        <div style="font-size:11px;font-weight:bold;letter-spacing:1.4px;text-transform:uppercase;color:#3448FF;margin-bottom:4px">Your request</div>
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${rows}</table>
       </div>
       <p style="margin:0 0 6px;font-weight:bold;color:#15171b">What happens next</p>
@@ -61,11 +61,11 @@ function clientHtml(name, summary) {
         <div style="font-size:16px;font-weight:bold;color:#15171b">Befekadu Berhanu</div>
         <div style="font-size:13px;color:#6b7078;margin:2px 0 8px">Founder, Endebeto Tech &nbsp;|&nbsp; Software Developer &nbsp;|&nbsp; Addis Ababa, Ethiopia</div>
         <div style="font-size:13px">
-          <a href="https://endebeto.com" style="color:#0f7a5c;text-decoration:none;font-weight:bold">endebeto.com</a>
+          <a href="https://endebeto.com" style="color:#3448FF;text-decoration:none;font-weight:bold">endebeto.com</a>
           <span style="color:#c9c4b8">&nbsp;·&nbsp;</span>
-          <a href="${SITE}" style="color:#0f7a5c;text-decoration:none;font-weight:bold">${SITE.replace('https://', '')}</a>
+          <a href="${SITE}" style="color:#3448FF;text-decoration:none;font-weight:bold">${SITE.replace('https://', '')}</a>
           <span style="color:#c9c4b8">&nbsp;·&nbsp;</span>
-          <a href="https://www.linkedin.com/in/befekaduberhanu" style="color:#0f7a5c;text-decoration:none;font-weight:bold">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/befekadu-berhanu/" style="color:#3448FF;text-decoration:none;font-weight:bold">LinkedIn</a>
         </div>
       </td></tr></table>
     </td></tr>
@@ -116,7 +116,7 @@ module.exports = async (req, res) => {
         <h2 style="margin:0 0 6px">New meeting request</h2>
         <p style="margin:0 0 16px;color:#555">Reply to this email to confirm with ${esc(name)}.</p>
         <table style="border-collapse:collapse;width:100%;font-size:14px">${tableRows}</table>
-        ${calRow ? `<p style="margin:20px 0"><a href="${esc(calRow[1])}" style="background:#0f7a5c;color:#fff;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:bold">Add to my Google Calendar</a></p>` : ''}
+        ${calRow ? `<p style="margin:20px 0"><a href="${esc(calRow[1])}" style="background:#3448FF;color:#fff;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:bold">Add to my Google Calendar</a></p>` : ''}
       </div>`
     });
 
