@@ -959,10 +959,14 @@ footer::before{content:"";position:absolute;inset:0;z-index:-1;background:radial
     try {
       // the email service only accepts requests from a real website, not a file opened locally
       if (location.protocol === 'file:') throw Object.assign(new Error('local'), { kind: 'local' });
-      let res;
-      try {
-        res = await fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(payload) });
-      } catch (netErr) { throw Object.assign(new Error('network'), { kind: 'network' }); }
+      // 1st choice: this site's own relay (/api/book on Vercel). Fallback: FormSubmit directly
+      // (used on hosts without the relay, e.g. GitHub Pages).
+      const send = url => fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(payload) });
+      let res = null;
+      try { res = await send('/api/book'); } catch (e) { res = null; }
+      if (!res || res.status === 404 || res.status === 405) {
+        try { res = await send(ENDPOINT); } catch (netErr) { throw Object.assign(new Error('network'), { kind: 'network' }); }
+      }
       const out = await res.json().catch(() => ({}));
       if (!res.ok || String(out.success) !== 'true') {
         const msg = String(out.message || `HTTP ${res.status}`);
