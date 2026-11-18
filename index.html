@@ -964,7 +964,7 @@ footer::before{content:"";position:absolute;inset:0;z-index:-1;background:radial
       const send = url => fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(payload) });
       let res = null;
       try { res = await send('/api/book'); } catch (e) { res = null; }
-      if (!res || res.status === 404 || res.status === 405) {
+      if (!res || [404, 405, 503].includes(res.status)) {
         try { res = await send(ENDPOINT); } catch (netErr) { throw Object.assign(new Error('network'), { kind: 'network' }); }
       }
       const out = await res.json().catch(() => ({}));
