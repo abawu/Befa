@@ -957,13 +957,28 @@ footer::before{content:"";position:absolute;inset:0;z-index:-1;background:radial
     };
     btnEl.disabled = true; btnEl.classList.add('loading'); errEl.style.display = 'none';
     try {
-      const res = await fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(payload) });
+      // the email service only accepts requests from a real website, not a file opened locally
+      if (location.protocol === 'file:') throw Object.assign(new Error('local'), { kind: 'local' });
+      let res;
+      try {
+        res = await fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(payload) });
+      } catch (netErr) { throw Object.assign(new Error('network'), { kind: 'network' }); }
       const out = await res.json().catch(() => ({}));
-      if (!res.ok || String(out.success) !== 'true') throw new Error(out.message || 'Request failed');
+      if (!res.ok || String(out.success) !== 'true') {
+        const msg = String(out.message || `HTTP ${res.status}`);
+        throw Object.assign(new Error(msg), { kind: /activat/i.test(msg) ? 'activation' : 'service' });
+      }
       showDone(d, when);
     } catch (err) {
       const body = Object.entries(payload).filter(([k]) => !k.startsWith('_')).map(([k, v]) => `${k}: ${v}`).join('\n');
-      errEl.innerHTML = `Sorry, the request couldn't be sent right now. <a href="mailto:${OWNER}?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(body)}">Send it by email instead</a>.`;
+      const mail = `<a href="mailto:${OWNER}?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(body)}">send your request by email</a>`;
+      const reasons = {
+        local: `Online booking only works on the live website. This page was opened as a file on a computer, so the request can't be delivered from here. You can ${mail} instead.`,
+        activation: `The booking form is waiting for a one-time activation by Befekadu, so your request wasn't delivered yet. Please ${mail} instead, or try again later.`,
+        network: `We couldn't reach the booking service. Please check your internet connection and try again, or ${mail}.`,
+        service: `The booking service declined the request (“${err.message.replace(/[<>&]/g, '')}”). Please try again, or ${mail}.`
+      };
+      errEl.innerHTML = reasons[err.kind] || reasons.service;
       errEl.style.display = 'block';
     } finally {
       btnEl.disabled = false; btnEl.classList.remove('loading');
