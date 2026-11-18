@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Befekadu Berhanu CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+:root{--ink:#15171b;--muted:#5d626a;--line:#e4e0d7;--accent:#0f7a5c;--accent-soft:#dcefe7;--gold:#c98a1b;--gold-soft:#f7ead0;--side:#f3f0e9;
+  --serif:"Fraunces",Georgia,serif;--sans:"Inter",Arial,sans-serif}
+html,body{background:#fff}
+body{font-family:var(--sans);color:var(--ink);font-size:8.6pt;line-height:1.5}
+.page{width:210mm;height:297mm;grid-template-rows:minmax(0,1fr) 27mm;display:grid;grid-template-columns:66mm 1fr;overflow:hidden;position:relative}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.01em;line-height:1.1}
+em{font-style:italic;color:var(--accent)}
+.label{font-size:6.6pt;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:3mm;display:flex;align-items:center;gap:2mm}
+.label::after{content:"";flex:1;height:.3mm;background:currentColor;opacity:.25}
+
+/* sidebar */
+aside{background:var(--side);padding:10mm 7mm 6mm 9mm;display:flex;flex-direction:column;gap:4.6mm;min-height:0}
+.photo{position:relative;margin-bottom:1mm}
+.photo .frame{width:100%;aspect-ratio:1/1;border-radius:5mm;overflow:hidden;transform:rotate(-1.5deg);box-shadow:0 2mm 6mm -2mm rgba(0,0,0,.25)}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:62% 36%;display:block}
+.photo .stamp{position:absolute;right:-3mm;bottom:-3mm;width:17mm;height:17mm;border-radius:50%;background:var(--gold);color:#fff;display:grid;place-items:center;text-align:center;font-size:5.4pt;font-weight:600;line-height:1.15;letter-spacing:.04em;box-shadow:0 1mm 3mm rgba(0,0,0,.2);transform:rotate(8deg)}
+.photo .stamp b{display:block;font-family:var(--serif);font-size:10pt;font-weight:400;letter-spacing:0}
+.contact{list-style:none;display:grid;gap:1.6mm}
+.contact li{display:flex;gap:2.2mm;align-items:center;font-size:7.1pt;white-space:nowrap}
+.contact .ic{width:6mm;height:6mm;border-radius:1.8mm;background:#fff;display:grid;place-items:center;flex:none;color:var(--accent)}
+.contact svg{width:3.2mm;height:3.2mm}
+.skillset{display:grid;gap:2mm}
+.skillset h4{font-family:var(--serif);font-weight:400;font-size:9.2pt;margin-bottom:.8mm}
+.chips{display:flex;flex-wrap:wrap;gap:1.3mm}
+.chips span{font-size:6.8pt;padding:.8mm 2.3mm;border-radius:10mm;background:#fff;border:.25mm solid var(--line)}
+.edu b{font-family:var(--serif);font-weight:400;font-size:10.5pt;display:block}
+.edu span{color:var(--muted);font-size:7.6pt}
+.langs{display:grid;gap:2mm}
+.lang{display:flex;justify-content:space-between;align-items:center;font-size:7.8pt}
+.bar{width:22mm;height:1.3mm;border-radius:2mm;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:2mm}
+
+/* main */
+main{padding:9mm 11mm 5mm 10mm;min-height:0;display:flex;flex-direction:column}
+.status{display:inline-flex;align-items:center;gap:2mm;font-size:7pt;color:var(--muted);border:.25mm solid var(--line);border-radius:10mm;padding:1mm 3mm 1mm 2mm;align-self:flex-start}
+.status i{width:1.8mm;height:1.8mm;border-radius:50%;background:var(--accent)}
+h1{font-size:29pt;margin:3mm 0 1.2mm;letter-spacing:-.025em}
+.role{font-size:9.2pt;color:var(--muted);margin-bottom:4mm}
+.role b{color:var(--ink);font-weight:500}
+.summary{font-size:8.8pt;color:#33373d;max-width:118mm;margin-bottom:5mm;padding-left:3.5mm;border-left:.8mm solid var(--accent)}
+
+/* stacked experience cards */
+.stack{position:relative;margin-bottom:4.5mm}
+.card{position:relative;border-radius:4mm;padding:3.4mm 5mm 3.6mm 5mm;display:grid;grid-template-columns:19mm 1fr;gap:4mm;margin-top:-2.6mm;box-shadow:0 -1mm 3mm -1mm rgba(0,0,0,.18);border:.25mm solid rgba(0,0,0,.06)}
+.card:first-child{margin-top:0}
+.card:nth-child(1){z-index:1}.card:nth-child(2){z-index:2}.card:nth-child(3){z-index:3}.card:nth-child(4){z-index:4}
+.c1{background:#15171b;color:#f3f1ec}
+.c2{background:#0f7a5c;color:#f1fbf6}
+.c3{background:#fff;color:var(--ink)}
+.c4{background:var(--gold-soft);color:#2a2010}
+.card .yr{font-family:var(--serif);font-size:15pt;line-height:1;letter-spacing:-.02em}
+.card .n{font-size:5.8pt;opacity:.6;letter-spacing:.14em;margin-top:1.5mm}
+.card .tag{display:inline-block;font-size:5.6pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border:.25mm solid currentColor;border-radius:10mm;padding:.4mm 2mm;opacity:.85;margin-bottom:1.4mm}
+.card h3{font-size:12.5pt;margin-bottom:.6mm}
+.card .org{font-size:7.4pt;opacity:.72;margin-bottom:1.3mm}
+.card p{font-size:7.9pt;opacity:.9;line-height:1.45}
+
+/* awards */
+.awards{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:3mm}
+.award{border:.25mm solid var(--line);border-radius:3.5mm;padding:3mm 3.4mm}
+.award .yr{font-size:5.9pt;font-weight:600;letter-spacing:.13em;color:var(--muted)}
+.award h3{font-size:10pt;margin:1.4mm 0 1mm}
+.award p{font-size:7pt;color:var(--muted);line-height:1.4}
+.award .m{width:7mm;height:7mm;border-radius:2mm;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);margin-bottom:2mm}
+.award .m svg{width:3.8mm;height:3.8mm}
+.award.hl{background:linear-gradient(150deg,var(--gold-soft),#fff 80%);border-color:#ead3a3}
+.award.hl .m{background:var(--gold);color:#fff}
+.award.hl h3{font-size:11.5pt}
+
+/* footer band */
+footer{grid-column:1/-1;background:#0b0d10;color:#eceae5;position:relative;overflow:hidden;height:27mm;display:flex;align-items:center;justify-content:space-between;padding:0 11mm 0 9mm}
+footer svg.waves{position:absolute;inset:0;width:100%;height:100%}
+footer::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 90% at 30% 0%,rgba(63,197,150,.22),transparent 70%)}
+.f-left,.f-right{position:relative;z-index:1}
+.f-left .big{font-family:var(--serif);font-size:22pt;letter-spacing:-.03em;line-height:1;color:#eceae5}.f-left .big span{color:#3fc596}.f-left .big i{color:#e8b453;font-style:normal}
+.f-left small{display:block;font-size:6.4pt;letter-spacing:.16em;text-transform:uppercase;color:#3fc596;margin-bottom:1.5mm}
+.f-right{text-align:right;font-size:7.4pt;color:rgba(236,234,229,.75);line-height:1.7}
+.f-right b{color:#fff;font-weight:500}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12Z"/><circle cx="12" cy="9" r="2.5"/></symbol>
+  <symbol id="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
+  <symbol id="linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.5h4V21H3V9.5Zm7 0h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4V9.5Z"/></symbol>
+  <symbol id="github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></symbol>
+  <symbol id="trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></symbol>
+  <symbol id="shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></symbol>
+</svg>
+
+<div class="page">
+  <aside>
+    <div class="photo">
+      <div class="frame"><img src="assets/befekadu.jpg" alt="Befekadu Berhanu"></div>
+      <div class="stamp"><div><b>2025</b>PROJECT OF<br>THE YEAR</div></div>
+    </div>
+
+    <div>
+      <div class="label">Contact</div>
+      <ul class="contact">
+        <li><span class="ic"><svg><use href="#mail"/></svg></span>befekaduberhanu4@gmail.com</li>
+        <li><span class="ic"><svg><use href="#globe"/></svg></span>endebeto.com</li>
+        <li><span class="ic"><svg><use href="#linkedin"/></svg></span>linkedin.com/in/befekaduberhanu</li>
+        <li><span class="ic"><svg><use href="#github"/></svg></span>github.com/abawu</li>
+        <li><span class="ic"><svg><use href="#pin"/></svg></span>Addis Ababa, Ethiopia</li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="label">Skills</div>
+      <div class="skillset">
+        <div><h4>Backend</h4><div class="chips"><span>Python</span><span>Go</span><span>Node.js</span><span>FastAPI</span><span>Django</span><span>REST APIs</span></div></div>
+        <div><h4>Frontend</h4><div class="chips"><span>React</span><span>MERN stack</span></div></div>
+        <div><h4>Cloud &amp; Security</h4><div class="chips"><span>AWS</span><span>Docker</span><span>CI/CD</span><span>Security tooling</span><span>Monitoring</span></div></div>
+        <div><h4>AI</h4><div class="chips"><span>AI model integration</span><span>AI-powered products</span></div></div>
+        <div><h4>Leadership</h4><div class="chips"><span>Product management</span><span>Mentorship</span><span>Team building</span></div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="label">Education</div>
+      <div class="edu"><b>B.Sc. Computer Engineering</b><span>University of Gondar</span></div>
+    </div>
+
+    <div>
+      <div class="label">Languages</div>
+      <div class="langs">
+        <div class="lang">English<span class="bar"><i style="width:85%"></i></span></div>
+        <div class="lang">Amharic<span class="bar"><i style="width:100%"></i></span></div>
+        <div class="lang">Wolaytta<span class="bar"><i style="width:100%"></i></span></div>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <span class="status"><i></i>Founder at Endebeto · Software Development Mentor</span>
+    <h1>Befekadu <em>Berhanu</em></h1>
+    <div class="role"><b>Computer Engineer</b> · Software Developer · Tech Entrepreneur</div>
+    <p class="summary">Computer engineer building technology that moves Ethiopia forward. I build secure, scalable software, mentor new developers, and lead Endebeto, an AI-enabled platform for discovering and booking authentic journeys across Ethiopia.</p>
+
+    <div class="label">Experience</div>
+    <div class="stack">
+      <div class="card c1">
+        <div><div class="yr">Now</div><div class="n">01 / 04</div></div>
+        <div>
+          <span class="tag">Founder</span>
+          <h3>Endebeto Tourism</h3>
+          <div class="org">AI-enabled tourism platform · endebeto.com</div>
+          <p>Leading product and engineering for a platform that helps travellers discover, plan and book authentic Ethiopian experiences, with AI-assisted trip planning at its core.</p>
+        </div>
+      </div>
+      <div class="card c2">
+        <div><div class="yr">Now</div><div class="n">02 / 04</div></div>
+        <div>
+          <span class="tag">Current role</span>
+          <h3>Software Development Mentor</h3>
+          <div class="org">Mentoring emerging developers and tech talent</div>
+          <p>Guiding new engineers through real-world projects, code reviews and career growth, with a focus on secure, production-ready software.</p>
+        </div>
+      </div>
+      <div class="card c3">
+        <div><div class="yr">2024</div><div class="n">03 / 04</div></div>
+        <div>
+          <span class="tag">Talent Trainee</span>
+          <h3>INSA Talent Program</h3>
+          <div class="org">Information Network Security Administration</div>
+          <p>Selected as a national digital talent. Built security automation and audit tools in Go and Python, with monitoring for critical infrastructure.</p>
+        </div>
+      </div>
+      <div class="card c4">
+        <div><div class="yr">2023</div><div class="n">04 / 04</div></div>
+        <div>
+          <span class="tag">Leadership</span>
+          <h3>Hult Prize Campus Director</h3>
+          <div class="org">University of Gondar</div>
+          <p>Led the campus Hult Prize program, running social entrepreneurship competitions for 1,000+ students and mentoring startup teams.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="label">Awards &amp; Recognition</div>
+    <div class="awards">
+      <div class="award hl">
+        <div class="m"><svg><use href="#trophy"/></svg></div>
+        <span class="yr">2025 · AGRICULTURE</span>
+        <h3>Innovative Project of the Year</h3>
+        <p>Ministry of Innovation &amp; Technology, agriculture category.</p>
+      </div>
+      <div class="award">
+        <div class="m"><svg><use href="#shield"/></svg></div>
+        <span class="yr">2024</span>
+        <h3>National Digital Talent</h3>
+        <p>Selected by INSA for excellence in security innovation.</p>
+      </div>
+      <div class="award">
+        <div class="m"><svg><use href="#spark"/></svg></div>
+        <span class="yr">2022–2023</span>
+        <h3>Hult Prize &amp; Mastercard Fdn.</h3>
+        <p>Campus leadership and the BUILD-in-a-Box program.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <svg class="waves" id="waves" preserveAspectRatio="none" viewBox="0 0 800 100"></svg>
+    <div class="f-left"><small>Let's work together</small><div class="big">Let's <span>build</span><i>.</i></div></div>
+    <div class="f-right"><b>befekaduberhanu4@gmail.com</b><br>endebeto.com · github.com/abawu<br>abawu.github.io/Befa</div>
+  </footer>
+</div>
+
+<script>
+// static contour lines for the footer band (same motif as the website footer)
+const svg = document.getElementById('waves'), N = 16, ns = 'http://www.w3.org/2000/svg';
+const defs = document.createElementNS(ns, 'defs');
+defs.innerHTML = '<linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#3fc596" stop-opacity=".1"/><stop offset=".5" stop-color="#3fc596" stop-opacity=".55"/><stop offset="1" stop-color="#e8b453" stop-opacity=".45"/></linearGradient>';
+svg.appendChild(defs);
+for (let l = 0; l < N; l++) {
+  const k = l / (N - 1); let d = '';
+  for (let x = 0; x <= 800; x += 8) {
+    const nx = x / 800;
+    const pull = Math.exp(-((nx - .62) ** 2) * 14) * Math.exp(-((k - .45) ** 2) * 5) * 16;
+    const y = 4 + k * 110 + Math.sin(nx * 6 + l * .35) * 7 + Math.sin(nx * 13 + l * .2) * 3 - pull;
+    d += (x ? 'L' : 'M') + x + ' ' + y.toFixed(1);
+  }
+  const p = document.createElementNS(ns, 'path');
+  p.setAttribute('d', d); p.setAttribute('fill', 'none'); p.setAttribute('stroke', 'url(#g)');
+  p.setAttribute('stroke-width', '.6'); p.setAttribute('opacity', (.25 + .75 * Math.sin(k * Math.PI)).toFixed(2));
+  p.setAttribute('vector-effect', 'non-scaling-stroke');
+  svg.appendChild(p);
+}
+</script>
+</body>
+</html>

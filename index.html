@@ -7,7 +7,7 @@
 <meta name="description" content="Befekadu Berhanu: computer engineer, software development mentor and founder of Endebeto Tourism, an AI-enabled travel platform for Ethiopia.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#f6f4ef; --surface:#ffffff; --ink:#15171b; --muted:#5d626a; --line:#e4e0d7;
@@ -157,6 +157,145 @@ section{padding:110px 0}
 .skill h4{font-family:var(--serif);font-weight:400;font-size:1.3rem;margin-bottom:10px}
 .skill p{color:var(--muted);font-size:.92rem}
 
+/* booking */
+.book-head{text-align:center;max-width:700px;margin:0 auto 48px}
+.book-head h2{font-family:var(--sans);font-weight:800;letter-spacing:-.035em}
+.book-head h2 em{font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
+.book-head .lead{margin:0 auto}
+.booker{display:grid;grid-template-columns:330px minmax(0,1fr);background:var(--surface);border:1px solid var(--line);border-radius:30px;box-shadow:var(--shadow);overflow:hidden;scroll-margin-top:90px}
+.book-info{background:var(--card-1);color:var(--card-1-ink);padding:36px 32px;display:flex;flex-direction:column;gap:24px;position:relative;overflow:hidden;isolation:isolate}
+.book-info::before{content:"";position:absolute;width:320px;height:320px;right:-140px;top:-140px;border-radius:50%;background:radial-gradient(circle,rgba(63,197,150,.35),transparent 65%);z-index:-1}
+.host{display:flex;gap:14px;align-items:center}
+.host img{width:58px;height:58px;border-radius:50%;object-fit:cover;object-position:62% 28%;border:2px solid rgba(255,255,255,.18)}
+.host b{display:block;font-weight:700;font-size:1.02rem}
+.host small{opacity:.65;font-size:.8rem}
+.book-info h3{font-family:var(--sans);font-weight:800;font-size:1.75rem;letter-spacing:-.03em;line-height:1.15}
+.meta-list{list-style:none;display:grid;gap:14px}
+.meta-list li{display:flex;gap:12px;font-size:.9rem;line-height:1.45;opacity:.9}
+.meta-list svg{width:19px;height:19px;flex:none;color:#3fc596;margin-top:1px}
+.picked{margin-top:auto;border:1.5px dashed rgba(255,255,255,.22);border-radius:16px;padding:16px 18px;transition:border-color .3s,background .3s}
+.picked.has{border-style:solid;border-color:#3fc596;background:rgba(63,197,150,.1)}
+.picked small{display:block;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.6;margin-bottom:4px}
+.picked b{font-weight:700;font-size:1.02rem}
+.book-main{padding:34px 40px 36px;min-width:0}
+.stepper{list-style:none;display:flex;gap:10px;margin-bottom:30px}
+.stepper li{display:flex;align-items:center;gap:10px;font-weight:700;font-size:.86rem;color:var(--muted);flex:1}
+.stepper li:last-child{flex:none}
+.stepper li:not(:last-child)::after{content:"";flex:1;height:2px;border-radius:2px;background:var(--line)}
+.stepper .n{width:30px;height:30px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:.8rem;flex:none;transition:all .3s}
+.stepper li.active{color:var(--ink)}
+.stepper li.active .n{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.stepper li.done .n{background:var(--accent);border-color:var(--accent);color:#fff}
+.stepper li.done::after{background:var(--accent)}
+.step{display:none}
+.step.on{display:block;animation:stepIn .45s ease}
+@keyframes stepIn{from{opacity:0;transform:translateX(16px)}}
+.step h3{font-family:var(--sans);font-weight:800;font-size:1.4rem;letter-spacing:-.025em;margin-bottom:4px}
+.step .sub{color:var(--muted);font-size:.92rem;margin-bottom:22px}
+.month{font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.days{display:flex;gap:10px;overflow-x:auto;padding:2px 2px 8px;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.day{flex:none;width:76px;padding:12px 0;border-radius:16px;border:1.5px solid var(--line);background:var(--bg);text-align:center;cursor:pointer;font:inherit;color:inherit;scroll-snap-align:start;transition:all .2s}
+.day span,.day small{display:block;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.day b{display:block;font-size:1.55rem;font-weight:800;line-height:1.25;letter-spacing:-.02em}
+.day:hover{border-color:var(--ink);transform:translateY(-2px)}
+.day[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.day[aria-pressed="true"] span,.day[aria-pressed="true"] small{color:inherit;opacity:.7}
+.periods{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px}
+.period h4{font-size:.76rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);display:flex;gap:8px;align-items:center;margin-bottom:12px}
+.period h4 svg{width:17px;height:17px;color:var(--gold)}
+.period h4 em{font-style:normal;font-weight:600;letter-spacing:0;text-transform:none;color:var(--muted);opacity:.8}
+.slots{display:grid;gap:10px}
+.slot{font:inherit;color:inherit;cursor:pointer;padding:14px 16px;border-radius:14px;border:1.5px solid var(--line);background:var(--bg);display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:700;font-size:1.02rem;transition:all .2s;text-align:left}
+.slot small{font-weight:500;color:var(--muted);font-size:.78rem}
+.slot:hover{border-color:var(--accent);transform:translateY(-1px)}
+.slot[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 10px 24px -10px var(--accent)}
+.slot[aria-pressed="true"] small{color:rgba(255,255,255,.85)}
+.range{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:5px;border-radius:18px;background:var(--bg);border:1.5px solid var(--line)}
+.blk{font:inherit;color:inherit;cursor:pointer;border:0;background:transparent;border-radius:6px;padding:14px 4px 12px;text-align:center;transition:background .2s,color .2s,transform .2s}
+.blk:first-child{border-radius:13px 6px 6px 13px}
+.blk:last-child{border-radius:6px 13px 13px 6px}
+.blk b{display:block;font-weight:800;font-size:1.12rem;letter-spacing:-.02em;line-height:1.2}
+.blk small{display:block;font-size:.72rem;font-weight:600;color:var(--muted)}
+.blk:hover{background:var(--accent-soft)}
+.blk.in{background:var(--accent);color:#fff}
+.blk.in small{color:rgba(255,255,255,.82)}
+.blk.in:not(.last){border-top-right-radius:2px;border-bottom-right-radius:2px}
+.blk.in:not(.first){border-top-left-radius:2px;border-bottom-left-radius:2px}
+.blk.first.last{transform:scale(1.02)}
+.range-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:10px;min-height:36px;font-size:.84rem;color:var(--muted)}
+.range-foot b{color:var(--ink);font-weight:800}
+.range-foot i{font-style:normal;font-size:.78rem}
+.full-btn{font:inherit;font-size:.78rem;font-weight:700;cursor:pointer;flex:none;padding:7px 13px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);transition:border-color .2s}
+.full-btn:hover{border-color:var(--accent);color:var(--accent)}
+.step-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:28px;padding-top:22px;border-top:1px solid var(--line);flex-wrap:wrap}
+.step-foot .tz{font-size:.82rem;color:var(--muted);display:flex;gap:8px;align-items:center}
+.step-foot .tz svg{width:16px;height:16px}
+.btn{border:0;cursor:pointer;font-family:inherit}
+.btn[disabled]{opacity:.35;pointer-events:none}
+.btn-accent{background:var(--accent);color:#fff;font-weight:700}
+.btn-accent:hover{transform:translateY(-2px);box-shadow:0 12px 26px -10px var(--accent)}
+.btn-link{background:none;color:var(--muted);font-weight:600;padding-left:0}
+.btn-link:hover{color:var(--ink)}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px}
+.full{grid-column:1/-1}
+.field label,.flabel{display:block;font-weight:700;font-size:.86rem;margin-bottom:7px}
+.field label i,.flabel i{font-style:normal;font-weight:500;color:var(--muted)}
+.field input,.field textarea{width:100%;font:inherit;font-size:.95rem;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;transition:border-color .2s,box-shadow .2s}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.field textarea{resize:vertical;min-height:84px}
+.field .msg{display:none;color:#d14343;font-size:.78rem;font-weight:600;margin-top:5px}
+.field.err input,.field.err textarea{border-color:#d14343}
+.field.err .msg{display:block}
+.count{float:right;font-weight:500;color:var(--muted);font-size:.76rem}
+.choice{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt label{display:flex;gap:12px;align-items:center;height:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:14px;cursor:pointer;background:var(--bg);font-weight:700;font-size:.95rem;transition:all .2s;margin:0}
+.opt label small{display:block;font-weight:500;color:var(--muted);font-size:.78rem}
+.opt .oi{width:40px;height:40px;border-radius:12px;background:var(--surface);border:1px solid var(--line);display:grid;place-items:center;flex:none;color:var(--accent)}
+.opt .oi svg{width:20px;height:20px}
+.opt input:checked+label{border-color:var(--accent);background:var(--accent-soft)}
+.opt input:focus-visible+label{box-shadow:0 0 0 4px var(--accent-soft)}
+.tools{display:flex;flex-wrap:wrap;gap:8px}
+.tools .opt label{padding:9px 17px;border-radius:999px;font-size:.88rem}
+.sub-box{margin-top:14px;animation:stepIn .35s ease}
+.notice{display:flex;gap:12px;padding:14px 16px;border-radius:14px;background:var(--gold-soft);font-size:.88rem;line-height:1.5;margin-top:20px}
+.notice svg{width:20px;height:20px;flex:none;color:var(--gold);margin-top:1px}
+.notice b{font-weight:700}
+.form-error{display:none;margin-top:16px;padding:14px 16px;border-radius:14px;border:1.5px solid #d14343;color:#d14343;font-size:.88rem;font-weight:600}
+.form-error a{text-decoration:underline}
+.hp{position:absolute;left:-9999px}
+.spin{width:16px;height:16px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite;display:none}
+.loading .spin{display:inline-block}
+.done{text-align:center;padding:6px 0}
+.tick{width:78px;height:78px;margin:0 auto 20px;border-radius:50%;background:var(--accent);display:grid;place-items:center;color:#fff;box-shadow:0 0 0 10px var(--accent-soft);animation:pop .6s cubic-bezier(.2,1.5,.4,1)}
+.tick svg{width:36px;height:36px}
+.tick path{stroke-dasharray:30;stroke-dashoffset:30;animation:draw .5s .35s ease forwards}
+@keyframes pop{from{transform:scale(.3);opacity:0}}
+@keyframes draw{to{stroke-dashoffset:0}}
+.done h3{font-size:1.7rem}
+.done .sub{max-width:460px;margin:6px auto 0}
+.recap{max-width:460px;margin:22px auto 0;text-align:left;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--bg)}
+.recap div{display:flex;justify-content:space-between;gap:16px;padding:12px 16px;font-size:.9rem;border-top:1px solid var(--line)}
+.recap div:first-child{border-top:0}
+.recap span{color:var(--muted);flex:none}
+.recap b{font-weight:700;text-align:right;overflow-wrap:anywhere}
+.done .notice{max-width:460px;margin:16px auto 0;text-align:left}
+.cal-title{font-weight:800;font-size:.95rem;margin:26px 0 12px}
+.cal-btns{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.cal-btns .btn{font-weight:600}
+@media (max-width:900px){
+  .booker{grid-template-columns:minmax(0,1fr)}
+  .book-info{padding:28px 24px}
+  .picked{margin-top:0}
+  .book-main{padding:28px 22px 30px}
+}
+@media (max-width:560px){
+  .periods,.fgrid,.choice{grid-template-columns:1fr}
+  .stepper li span.t{display:none}
+  .meta-list li:nth-child(n+3){display:none}
+}
+
 /* footer */
 footer{position:relative;margin-top:60px;background:#0b0d10;color:#eceae5;overflow:hidden;isolation:isolate}
 #waves{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
@@ -223,6 +362,15 @@ footer::before{content:"";position:absolute;inset:0;z-index:-1;background:radial
   <symbol id="mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
   <symbol id="linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.5h4V21H3V9.5Zm7 0h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4V9.5Z"/></symbol>
   <symbol id="github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></symbol>
+  <symbol id="download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
+  <symbol id="clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="video" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3"/></symbol>
+  <symbol id="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
+  <symbol id="people" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6.5 6.5 0 0 1 3.5 6"/></symbol>
+  <symbol id="sunrise" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a5 5 0 0 0-10 0M12 2v7M4.2 10.2l1.4 1.4M1 18h2M21 18h2M18.4 11.6l1.4-1.4M23 22H1M8 6l4-4 4 4"/></symbol>
+  <symbol id="sunset" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a5 5 0 0 0-10 0M12 9V2M4.2 10.2l1.4 1.4M1 18h2M21 18h2M18.4 11.6l1.4-1.4M23 22H1M16 5l-4 4-4-4"/></symbol>
+  <symbol id="cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+  <symbol id="bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 8 3 8H3s3-1 3-8M10.3 21a1.9 1.9 0 0 0 3.4 0"/></symbol>
   <symbol id="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></symbol>
   <symbol id="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
 </svg>
@@ -235,10 +383,12 @@ footer::before{content:"";position:absolute;inset:0;z-index:-1;background:radial
       <li><a href="#endebeto">Endebeto</a></li>
       <li><a href="#awards">Awards</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#book">Book a meeting</a></li>
     </ul>
     <div class="nav-right">
       <button class="icon-btn" id="themeBtn" aria-label="Toggle dark mode"><svg><use href="#moon"/></svg></button>
-      <a href="#contact" class="btn btn-primary">Get in touch</a>
+      <a href="Befekadu-Berhanu-CV.pdf" download class="btn btn-ghost"><svg><use href="#download"/></svg>CV</a>
+      <a href="#book" class="btn btn-primary">Book a meeting</a>
     </div>
   </div>
 </header>
@@ -252,8 +402,9 @@ footer::before{content:"";position:absolute;inset:0;z-index:-1;background:radial
         <h1 class="reveal">Building technology that <em>moves Ethiopia</em> forward.</h1>
         <p class="lead reveal">I'm Befekadu Berhanu, a computer engineer from Addis Ababa. I build secure, scalable software, mentor new developers, and lead Endebeto, an AI-enabled platform for discovering Ethiopia.</p>
         <div class="hero-ctas reveal">
-          <a href="#experience" class="btn btn-primary">View my journey <svg><use href="#arrow"/></svg></a>
-          <a href="https://endebeto.com" target="_blank" rel="noopener" class="btn btn-ghost">Visit endebeto.com</a>
+          <a href="#book" class="btn btn-primary"><svg><use href="#cal"/></svg>Book a meeting</a>
+          <a href="#experience" class="btn btn-ghost">View my journey <svg><use href="#arrow"/></svg></a>
+          <a href="Befekadu-Berhanu-CV.pdf" download class="btn btn-ghost"><svg><use href="#download"/></svg>Download CV</a>
         </div>
         <div class="hero-meta reveal">
           <div><b>2025</b><span>Innovative Project of the Year</span></div>
@@ -402,6 +553,115 @@ footer::before{content:"";position:absolute;inset:0;z-index:-1;background:radial
       </div>
     </div>
   </section>
+
+  <!-- BOOK A MEETING -->
+  <section id="book">
+    <div class="wrap">
+      <div class="book-head">
+        <span class="eyebrow reveal">Book a meeting</span>
+        <h2 class="reveal">Let's talk about <em>your idea</em>.</h2>
+        <p class="lead reveal">Pick an open time, share a few details, and I'll confirm by email. I'm available for project collaborations, mentorship, and partnerships with Endebeto.</p>
+      </div>
+
+      <div class="booker reveal" id="booker">
+        <aside class="book-info">
+          <div class="host">
+            <img src="assets/befekadu.jpg" alt="">
+            <div><b>Befekadu Berhanu</b><small>Founder, Endebeto · Mentor</small></div>
+          </div>
+          <h3>Book a<br>meeting with me</h3>
+          <ul class="meta-list">
+            <li><svg><use href="#clock"/></svg>Mon–Fri · 10:00–11:30 AM &amp; 3:00–4:30 PM, choose 30 min to 1½ h</li>
+            <li><svg><use href="#video"/></svg>Online (Zoom, Google Meet, Teams) or in person in Addis Ababa</li>
+            <li><svg><use href="#globe"/></svg>Times shown in Addis Ababa time (EAT, UTC+3)</li>
+            <li><svg><use href="#mail"/></svg>You'll receive a confirmation email from me</li>
+          </ul>
+          <div class="picked" id="picked"><small>Your selection</small><b id="pickedText">No time selected yet</b></div>
+        </aside>
+
+        <div class="book-main">
+          <ol class="stepper" id="stepper">
+            <li class="active"><span class="n">1</span><span class="t">Choose a time</span></li>
+            <li><span class="n">2</span><span class="t">Your details</span></li>
+            <li><span class="n">3</span><span class="t">Done</span></li>
+          </ol>
+
+          <!-- step 1 -->
+          <div class="step on" data-step="1">
+            <h3>Select a date &amp; time</h3>
+            <p class="sub">Weekdays from next Monday. Pick a day, then tap a start and an end time to choose your range, from 30 minutes up to 1½ hours.</p>
+            <div class="month" id="monthLabel"></div>
+            <div class="days" id="days" role="group" aria-label="Available days"></div>
+            <div class="periods">
+              <div class="period"><h4><svg><use href="#sunrise"/></svg>Morning <em>10:00–11:30 AM</em></h4><div class="slots" id="amSlots"></div></div>
+              <div class="period"><h4><svg><use href="#sunset"/></svg>Afternoon <em>3:00–4:30 PM</em></h4><div class="slots" id="pmSlots"></div></div>
+            </div>
+            <div class="step-foot">
+              <span class="tz"><svg><use href="#globe"/></svg><span id="tzNote">Addis Ababa time (EAT)</span></span>
+              <button class="btn btn-primary" id="toDetails" disabled>Continue <svg><use href="#arrow"/></svg></button>
+            </div>
+          </div>
+
+          <!-- step 2 -->
+          <form class="step" data-step="2" id="bookForm" novalidate>
+            <h3>Tell me about you</h3>
+            <p class="sub">Your contact details and what you'd like to discuss.</p>
+            <div class="fgrid">
+              <div class="field"><label for="bName">Full name</label><input id="bName" name="name" autocomplete="name" required><div class="msg">Please enter your name.</div></div>
+              <div class="field"><label for="bEmail">Email</label><input id="bEmail" name="email" type="email" autocomplete="email" required><div class="msg">Please enter a valid email.</div></div>
+              <div class="field"><label for="bPhone">Phone / WhatsApp <i>(optional)</i></label><input id="bPhone" name="phone" type="tel" autocomplete="tel"></div>
+              <div class="field"><label for="bOrg">Company / organization <i>(optional)</i></label><input id="bOrg" name="org" autocomplete="organization"></div>
+
+              <div class="full">
+                <span class="flabel">How would you like to meet?</span>
+                <div class="choice">
+                  <div class="opt"><input type="radio" name="format" id="fOnline" value="Online" checked><label for="fOnline"><span class="oi"><svg><use href="#video"/></svg></span><span>Online<small>Video call</small></span></label></div>
+                  <div class="opt"><input type="radio" name="format" id="fPerson" value="In person"><label for="fPerson"><span class="oi"><svg><use href="#people"/></svg></span><span>In person<small>Addis Ababa</small></span></label></div>
+                </div>
+                <div class="sub-box" id="toolBox">
+                  <span class="flabel">Preferred tool</span>
+                  <div class="tools">
+                    <div class="opt"><input type="radio" name="tool" id="tZoom" value="Zoom" checked><label for="tZoom">Zoom</label></div>
+                    <div class="opt"><input type="radio" name="tool" id="tMeet" value="Google Meet"><label for="tMeet">Google Meet</label></div>
+                    <div class="opt"><input type="radio" name="tool" id="tTeams" value="Microsoft Teams"><label for="tTeams">Microsoft Teams</label></div>
+                    <div class="opt"><input type="radio" name="tool" id="tOther" value="Other"><label for="tOther">Other</label></div>
+                  </div>
+                  <div class="field sub-box" id="otherBox" hidden><label for="bOther">Which tool?</label><input id="bOther" placeholder="e.g. Telegram, WhatsApp, Skype"><div class="msg">Please name the tool.</div></div>
+                </div>
+                <div class="field sub-box" id="placeBox" hidden><label for="bPlace">Preferred meeting place <i>(optional)</i></label><input id="bPlace" placeholder="e.g. a café or office in Addis Ababa"></div>
+              </div>
+
+              <div class="field full"><label for="bReason">Reason for the meeting <span class="count" id="reasonCount">0 / 300</span></label><textarea id="bReason" maxlength="300" rows="3" placeholder="A short summary, e.g. partnership with Endebeto, mentorship, a software project…" required></textarea><div class="msg">Please add a short reason.</div></div>
+              <div class="field full"><label for="bExpect">What do you expect from this meeting? <i>(optional)</i></label><textarea id="bExpect" maxlength="500" rows="3" placeholder="Outcomes you're hoping for, questions you'd like answered…"></textarea></div>
+              <input class="hp" type="text" name="_honey" id="bHoney" tabindex="-1" autocomplete="off" aria-hidden="true">
+            </div>
+            <div class="notice"><svg><use href="#bell"/></svg><span><b>Heads up:</b> this is a meeting request. A confirmation email from Befekadu will be sent to you soon, and after booking you can add the meeting to your calendar.</span></div>
+            <div class="form-error" id="formError"></div>
+            <div class="step-foot">
+              <button type="button" class="btn btn-link" id="backBtn">← Back</button>
+              <button type="submit" class="btn btn-accent" id="submitBtn"><span class="spin"></span>Request meeting <svg><use href="#arrow"/></svg></button>
+            </div>
+          </form>
+
+          <!-- step 3 -->
+          <div class="step done" data-step="3">
+            <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></div>
+            <h3>Request sent, thank you!</h3>
+            <p class="sub">Befekadu has been notified about your meeting request.</p>
+            <div class="recap" id="recap"></div>
+            <div class="notice"><svg><use href="#mail"/></svg><span><b>Check your inbox.</b> A confirmation email from Befekadu will be sent to you soon with the final details<span id="linkNote"> and meeting link</span>.</span></div>
+            <div class="cal-title">Add it to your calendar so you get a reminder</div>
+            <div class="cal-btns">
+              <a class="btn btn-ghost" id="calGoogle" target="_blank" rel="noopener"><svg><use href="#cal"/></svg>Google Calendar</a>
+              <a class="btn btn-ghost" id="calOutlook" target="_blank" rel="noopener"><svg><use href="#cal"/></svg>Outlook</a>
+              <button class="btn btn-ghost" id="calIcs" type="button"><svg><use href="#download"/></svg>Apple / .ics</button>
+            </div>
+            <div style="margin-top:22px"><button class="btn btn-link" id="againBtn" type="button">Book another time</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <!-- FOOTER -->
@@ -420,6 +680,7 @@ footer::before{content:"";position:absolute;inset:0;z-index:-1;background:radial
     <div class="socials">
       <a href="https://www.linkedin.com/in/befekaduberhanu" target="_blank" rel="noopener"><svg><use href="#linkedin"/></svg>LinkedIn</a>
       <a href="https://github.com/abawu" target="_blank" rel="noopener"><svg><use href="#github"/></svg>GitHub</a>
+      <a href="Befekadu-Berhanu-CV.pdf" download><svg><use href="#download"/></svg>Download CV (PDF)</a>
       <a href="https://endebeto.com" target="_blank" rel="noopener"><svg><use href="#arrow"/></svg>endebeto.com</a>
     </div>
   </div>
@@ -529,6 +790,218 @@ footer::before{content:"";position:absolute;inset:0;z-index:-1;background:radial
     const was = running; running = e.isIntersecting;
     if (running && !was) requestAnimationFrame(draw);
   })).observe(foot);
+
+  /* ---------- Booking ----------
+     Open slots: weekdays from next Monday, 10:00–11:00 and 15:00–16:30 Addis Ababa time,
+     in 30-minute blocks. Requests are emailed to the owner via FormSubmit (no backend needed). */
+  const OWNER = 'befekaduberhanu4@gmail.com';
+  const ENDPOINT = 'https://formsubmit.co/ajax/' + OWNER;
+  const TZ = 'Africa/Addis_Ababa', OFF = 3, STEP = 30, DAYS_SHOWN = 10;
+  // each window is split into 30-min blocks; the client picks a start and end block
+  const PERIODS = { am: [[10, 0], [10, 30], [11, 0]], pm: [[15, 0], [15, 30], [16, 0]] };
+  const localTZ = Intl.DateTimeFormat().resolvedOptions().timeZone || TZ;
+  const fT = (ms, tz) => new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', timeZone: tz }).format(ms);
+  const fD = (ms, o) => new Intl.DateTimeFormat('en-US', { timeZone: TZ, ...o }).format(ms);
+  const sameZone = [Date.UTC(2026, 0, 15, 7), Date.UTC(2026, 6, 15, 7)].every(ms => fT(ms, localTZ) === fT(ms, TZ));
+  const $ = id => document.getElementById(id);
+
+  // upcoming Monday (in Addis Ababa), then the following weekdays
+  const eatNow = new Date(Date.now() + OFF * 36e5);
+  const add = ((8 - eatNow.getUTCDay()) % 7) || 7;
+  const base = Date.UTC(eatNow.getUTCFullYear(), eatNow.getUTCMonth(), eatNow.getUTCDate() + add);
+  const days = [];
+  for (let i = 0; days.length < DAYS_SHOWN; i++) {
+    const d = base + i * 864e5, wd = new Date(d).getUTCDay();
+    if (wd !== 0 && wd !== 6) days.push(d);
+  }
+  const slotStart = (day, [h, m]) => day + (h - OFF) * 36e5 + m * 6e4;
+  const noon = d => d + 9 * 36e5;
+
+  const first = fD(noon(days[0]), { month: 'long', year: 'numeric' });
+  const last = fD(noon(days[days.length - 1]), { month: 'long', year: 'numeric' });
+  $('monthLabel').textContent = first === last ? first : `${first.split(' ')[0]} – ${last}`;
+  if (!sameZone) $('tzNote').textContent = `Addis Ababa time (EAT) · your time shown in grey`;
+
+  let sel = null, selDay = days[0], dayBtns = [];
+  const daysEl = $('days');
+  days.forEach(d => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'day'; b.setAttribute('aria-pressed', d === selDay);
+    b.innerHTML = `<span>${fD(noon(d), { weekday: 'short' })}</span><b>${fD(noon(d), { day: 'numeric' })}</b><small>${fD(noon(d), { month: 'short' })}</small>`;
+    b.addEventListener('click', () => { selDay = d; dayBtns.forEach(x => x.setAttribute('aria-pressed', x === b)); renderSlots(); });
+    daysEl.appendChild(b); dayBtns.push(b);
+  });
+
+  const durLabel = s => { const m = (s.end - s.start) / 6e4; return m < 60 ? `${m} min` : `${Math.floor(m / 60)} h${m % 60 ? ' ' + (m % 60) + ' min' : ''}`; };
+  const whenLabel = s => `${fD(s.start, { weekday: 'short', month: 'short', day: 'numeric' })} · ${fT(s.start, TZ)} – ${fT(s.end, TZ)} EAT (${durLabel(s)})`;
+  const hhmm = ms => fT(ms, TZ).replace(/\s?[AP]M$/, '');
+
+  // sel = { day, period, a, b, start, end }  (a..b are inclusive block indexes)
+  function setRange(period, a, b) {
+    const blocks = PERIODS[period];
+    const start = slotStart(selDay, blocks[a]), end = slotStart(selDay, blocks[b]) + STEP * 6e4;
+    sel = { day: selDay, period, a, b, start, end };
+    $('pickedText').textContent = whenLabel(sel);
+    $('picked').classList.add('has');
+    $('toDetails').disabled = false;
+    renderSlots();
+  }
+  function pick(period, i) {
+    // 1st tap = start; 2nd tap in the same window = end of range; a further tap starts over
+    if (sel && sel.day === selDay && sel.period === period && sel.a === sel.b && i !== sel.a)
+      setRange(period, Math.min(sel.a, i), Math.max(sel.a, i));
+    else setRange(period, i, i);
+  }
+  function renderSlots() {
+    Object.entries(PERIODS).forEach(([period, blocks]) => {
+      const box = $(period + 'Slots'); box.innerHTML = '';
+      const active = sel && sel.day === selDay && sel.period === period;
+      const bar = document.createElement('div'); bar.className = 'range';
+      blocks.forEach((hm, i) => {
+        const start = slotStart(selDay, hm), end = start + STEP * 6e4;
+        const inR = active && i >= sel.a && i <= sel.b;
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'blk' + (inR ? ' in' : '') + (inR && i === sel.a ? ' first' : '') + (inR && i === sel.b ? ' last' : '');
+        b.setAttribute('aria-pressed', inR);
+        b.setAttribute('aria-label', `${fT(start, TZ)} to ${fT(end, TZ)}`);
+        b.innerHTML = `<b>${hhmm(start)}</b><small>to ${hhmm(end)}</small>`;
+        b.addEventListener('click', () => pick(period, i));
+        bar.appendChild(b);
+      });
+      box.appendChild(bar);
+
+      const foot = document.createElement('div'); foot.className = 'range-foot';
+      const info = document.createElement('span');
+      if (active) {
+        info.innerHTML = `<b style="white-space:nowrap">${hhmm(sel.start)} – ${fT(sel.end, TZ)}</b> · <span style="white-space:nowrap">${durLabel(sel)}</span>` +
+          (sameZone ? '' : `<br><i>${fT(sel.start, localTZ)} – ${fT(sel.end, localTZ)} your time</i>`);
+      } else info.textContent = sel && sel.day === selDay ? '' : 'Tap a start time, then an end time';
+      const full = document.createElement('button');
+      full.type = 'button'; full.className = 'full-btn'; full.textContent = 'Full window';
+      full.addEventListener('click', () => setRange(period, 0, blocks.length - 1));
+      foot.append(info, full);
+      box.appendChild(foot);
+    });
+  }
+  renderSlots();
+
+  // steps
+  const booker = $('booker'), stepLis = [...$('stepper').children];
+  const go = n => {
+    document.querySelectorAll('.step').forEach(s => s.classList.toggle('on', +s.dataset.step === n));
+    stepLis.forEach((li, i) => { li.classList.toggle('active', i + 1 === n); li.classList.toggle('done', i + 1 < n); });
+    if (booker.getBoundingClientRect().top < 0) booker.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+  };
+  $('toDetails').addEventListener('click', () => { if (sel) { go(2); $('bName').focus({ preventScroll: true }); } });
+  $('backBtn').addEventListener('click', () => go(1));
+
+  // form behaviour
+  const form = $('bookForm');
+  const radio = name => form.querySelector(`input[name="${name}"]:checked`).value;
+  const syncFormat = () => {
+    const online = radio('format') === 'Online';
+    $('toolBox').hidden = !online; $('placeBox').hidden = online;
+    $('otherBox').hidden = !(online && radio('tool') === 'Other');
+  };
+  form.querySelectorAll('input[name="format"],input[name="tool"]').forEach(r => r.addEventListener('change', syncFormat));
+  $('bReason').addEventListener('input', e => $('reasonCount').textContent = `${e.target.value.length} / 300`);
+  form.querySelectorAll('input,textarea').forEach(el => el.addEventListener('input', () => el.closest('.field')?.classList.remove('err')));
+
+  const validate = () => {
+    let ok = true;
+    const need = (id, test) => { const f = $(id).closest('.field'); const good = test($(id).value.trim()); f.classList.toggle('err', !good); if (!good && ok) { $(id).focus(); ok = false; } };
+    need('bName', v => v.length > 1);
+    need('bEmail', v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v));
+    if (!$('otherBox').hidden) need('bOther', v => v.length > 1);
+    need('bReason', v => v.length > 4);
+    return ok;
+  };
+
+  const details = () => {
+    const online = radio('format') === 'Online';
+    const tool = online ? (radio('tool') === 'Other' ? $('bOther').value.trim() : radio('tool')) : '';
+    return {
+      name: $('bName').value.trim(), email: $('bEmail').value.trim(), phone: $('bPhone').value.trim(),
+      org: $('bOrg').value.trim(), online, tool, place: $('bPlace').value.trim(),
+      reason: $('bReason').value.trim(), expect: $('bExpect').value.trim()
+    };
+  };
+
+  // calendar helpers
+  const icsDate = ms => new Date(ms).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+  const where = d => d.online ? `Online (${d.tool}), link to follow by email` : `In person, Addis Ababa${d.place ? ' (' + d.place + ')' : ''}`;
+  const calLinks = (title, body, loc) => ({
+    google: `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${icsDate(sel.start)}/${icsDate(sel.end)}&details=${encodeURIComponent(body)}&location=${encodeURIComponent(loc)}`,
+    outlook: `https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&subject=${encodeURIComponent(title)}&startdt=${new Date(sel.start).toISOString()}&enddt=${new Date(sel.end).toISOString()}&body=${encodeURIComponent(body)}&location=${encodeURIComponent(loc)}`
+  });
+  const esc = s => s.replace(/\\/g, '\\\\').replace(/\r?\n/g, '\\n').replace(/([,;])/g, '\\$1');
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (!sel || !validate() || $('bHoney').value) return;
+    const d = details(), when = whenLabel(sel), btnEl = $('submitBtn'), errEl = $('formError');
+    const localWhen = sameZone ? '' : `${new Intl.DateTimeFormat('en-US', { timeZone: localTZ, weekday: 'short', month: 'short', day: 'numeric' }).format(sel.start)} ${fT(sel.start, localTZ)} – ${fT(sel.end, localTZ)} (${localTZ})`;
+    const ownerCal = calLinks(`Meeting with ${d.name}`, `Reason: ${d.reason}\nContact: ${d.email} ${d.phone}`, where(d)).google;
+    const payload = {
+      _subject: `New meeting request: ${d.name} · ${when}`,
+      _template: 'table',
+      _captcha: 'false',
+      _autoresponse: `Hi ${d.name}, thank you for requesting a meeting with Befekadu Berhanu on ${when}. Your request has been received, and a confirmation email from Befekadu will be sent to you soon.`,
+      'Name': d.name, email: d.email, 'Phone / WhatsApp': d.phone || '-', 'Organization': d.org || '-',
+      'Requested time (EAT)': when, 'Duration': durLabel(sel), 'Client local time': localWhen || 'Same as EAT',
+      'Meeting format': d.online ? 'Online' : 'In person',
+      'Tool / place': d.online ? d.tool : (d.place || 'To be agreed, Addis Ababa'),
+      'Reason': d.reason, 'Expectations': d.expect || '-',
+      'Add to your calendar': ownerCal
+    };
+    btnEl.disabled = true; btnEl.classList.add('loading'); errEl.style.display = 'none';
+    try {
+      const res = await fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(payload) });
+      const out = await res.json().catch(() => ({}));
+      if (!res.ok || String(out.success) !== 'true') throw new Error(out.message || 'Request failed');
+      showDone(d, when);
+    } catch (err) {
+      const body = Object.entries(payload).filter(([k]) => !k.startsWith('_')).map(([k, v]) => `${k}: ${v}`).join('\n');
+      errEl.innerHTML = `Sorry, the request couldn't be sent right now. <a href="mailto:${OWNER}?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(body)}">Send it by email instead</a>.`;
+      errEl.style.display = 'block';
+    } finally {
+      btnEl.disabled = false; btnEl.classList.remove('loading');
+    }
+  });
+
+  function showDone(d, when) {
+    const rows = [['When', when], ['Format', d.online ? `Online · ${d.tool}` : 'In person · Addis Ababa'], ['Name', d.name], ['Email', d.email]];
+    if (d.phone) rows.push(['Phone', d.phone]);
+    rows.push(['Reason', d.reason]);
+    const recap = $('recap'); recap.innerHTML = '';
+    rows.forEach(([k, v]) => { const r = document.createElement('div'), a = document.createElement('span'), b = document.createElement('b'); a.textContent = k; b.textContent = v; r.append(a, b); recap.appendChild(r); });
+    $('linkNote').hidden = !d.online;
+
+    const title = 'Meeting with Befekadu Berhanu';
+    const body = `Meeting request (pending confirmation from Befekadu).\nReason: ${d.reason}${d.expect ? '\nExpectations: ' + d.expect : ''}\nContact: ${OWNER}`;
+    const links = calLinks(title, body, where(d));
+    $('calGoogle').href = links.google; $('calOutlook').href = links.outlook;
+    $('calIcs').onclick = () => {
+      const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Befekadu Berhanu//Booking//EN', 'BEGIN:VEVENT',
+        `UID:${sel.start}-${Math.random().toString(36).slice(2)}@befekadu`, `DTSTAMP:${icsDate(Date.now())}`,
+        `DTSTART:${icsDate(sel.start)}`, `DTEND:${icsDate(sel.end)}`, `SUMMARY:${esc(title)}`,
+        `DESCRIPTION:${esc(body)}`, `LOCATION:${esc(where(d))}`, 'STATUS:TENTATIVE',
+        'BEGIN:VALARM', 'TRIGGER:-PT30M', 'ACTION:DISPLAY', 'DESCRIPTION:Meeting with Befekadu in 30 minutes', 'END:VALARM',
+        'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([ics], { type: 'text/calendar' }));
+      a.download = 'meeting-with-befekadu.ics'; a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    };
+    go(3);
+  }
+
+  $('againBtn').addEventListener('click', () => {
+    form.reset(); syncFormat(); $('reasonCount').textContent = '0 / 300';
+    sel = null; $('picked').classList.remove('has'); $('pickedText').textContent = 'No time selected yet';
+    $('toDetails').disabled = true; renderSlots(); go(1);
+  });
 })();
 </script>
 </body>
