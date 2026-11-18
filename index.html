@@ -56,12 +56,13 @@ section{padding:110px 0}
 
 /* social logo buttons */
 .socials{display:flex;gap:10px;flex-wrap:wrap}
-.soc{width:44px;height:44px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;color:var(--ink);transition:border-color .2s,color .2s,background .2s}
+.soc{width:44px;height:44px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;color:var(--ink);transition:border-color .2s,color .2s,transform .2s}
 .soc svg{width:19px;height:19px}
-.soc:hover{border-color:var(--accent);background:var(--accent);color:var(--on-accent)}
+.soc:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.soc.brand svg{width:24px;height:24px}
 .soc-label{display:inline-flex;align-items:center;gap:9px;padding:10px 18px 10px 14px;border-radius:999px;border:2px solid var(--line);font-weight:600;font-size:.9rem;transition:border-color .2s,background .2s,color .2s}
 .soc-label svg{width:18px;height:18px}
-.soc-label:hover{border-color:var(--accent);background:var(--accent);color:var(--on-accent)}
+.soc-label:hover{border-color:var(--accent)}
 
 /* nav */
 .nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
@@ -102,24 +103,24 @@ section{padding:110px 0}
 .stat span{font-size:.88rem;color:var(--muted);font-weight:500}
 
 /* marquee transitions */
-.mq{overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);padding:18px 0;user-select:none}
+.mq{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;user-select:none}
 .mq.solid{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
 .mq.night{background:var(--night);color:var(--night-ink);border-color:var(--night)}
 .mq-row{display:flex;white-space:nowrap}
-.mq-row + .mq-row{margin-top:10px}
+.mq-row + .mq-row{margin-top:6px}
 .mq-track{display:flex;will-change:transform}
 .mq-group{display:flex;align-items:center;flex:none}
-.mq-group span{font-size:clamp(1.8rem,5vw,3.6rem);font-weight:900;letter-spacing:-.04em;line-height:1.1;text-transform:uppercase;padding:0 26px}
+.mq-group span{font-size:clamp(1.2rem,2.8vw,2rem);font-weight:800;letter-spacing:-.025em;line-height:1.2;text-transform:uppercase;padding:0 22px}
 .mq{--mq-ink:var(--ink)}
 .mq.solid{--mq-ink:var(--on-accent)}
 .mq.night{--mq-ink:var(--night-ink)}
 .mq-group span.o{color:var(--accent)}
 .mq.solid .mq-group span.o{color:var(--night)}
 .mq.solid .mq-group i{background:var(--night)}
-.mq-group i{width:16px;height:16px;flex:none;background:var(--accent);transform:rotate(45deg)}
+.mq-group i{width:9px;height:9px;flex:none;background:var(--accent);transform:rotate(45deg)}
 .mq.night .mq-group i{background:var(--accent)}
-.mq.small .mq-group span{font-size:clamp(1.1rem,2.6vw,1.7rem);letter-spacing:-.02em;padding:0 20px}
-.mq.small .mq-group i{width:10px;height:10px}
+.mq.small .mq-group span{font-size:clamp(.95rem,1.8vw,1.2rem);letter-spacing:-.01em;padding:0 18px}
+.mq.small .mq-group i{width:7px;height:7px}
 
 /* story chapters (stacking cards) */
 .story-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:40px;align-items:end;margin-bottom:60px}
@@ -210,7 +211,7 @@ section{padding:110px 0}
 .meta-list li{display:flex;gap:12px;font-size:.9rem;line-height:1.45;color:var(--night-ink)}
 .meta-list svg{width:19px;height:19px;flex:none;color:var(--accent);margin-top:1px}
 .book-info .socials .soc{border-color:var(--night-line);color:var(--night-ink)}
-.book-info .socials .soc:hover{border-color:var(--accent);background:var(--accent)}
+.book-info .socials .soc:hover{border-color:var(--accent);color:var(--night-ink)}
 .picked{margin-top:auto;border:2px dashed var(--night-line);border-radius:16px;padding:16px 18px;transition:border-color .3s,background .3s}
 .picked.has{border-style:solid;border-color:var(--accent);background:var(--accent)}
 .picked small{display:block;font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin-bottom:4px}
@@ -380,8 +381,8 @@ footer .soc-label{border-color:var(--night-line);color:var(--night-ink)}
   <symbol id="shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></symbol>
   <symbol id="spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></symbol>
   <symbol id="mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
-  <symbol id="linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.5h4V21H3V9.5Zm7 0h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4V9.5Z"/></symbol>
-  <symbol id="whatsapp" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.69 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.49-8.41Z"/></symbol>
+  <symbol id="linkedin" viewBox="0 0 24 24"><rect width="24" height="24" rx="4.5" fill="#0A66C2"/><path fill="#fff" transform="translate(4.3 4.1) scale(.66)" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.5h4V21H3V9.5Zm7 0h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4V9.5Z"/></symbol>
+  <symbol id="whatsapp" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#25D366"/><path fill="#fff" transform="translate(4.8 4.8) scale(.6)" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.69 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.49-8.41Z"/></symbol>
   <symbol id="github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></symbol>
   <symbol id="download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
   <symbol id="clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
@@ -429,8 +430,8 @@ footer .soc-label{border-color:var(--night-line);color:var(--night-ink)}
         </div>
         <div class="hero-foot reveal">
           <div class="socials">
-            <a class="soc" href="https://www.linkedin.com/in/befekadu-berhanu/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#linkedin"/></svg></a>
-            <a class="soc" href="https://wa.me/251932900373" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#whatsapp"/></svg></a>
+            <a class="soc brand" href="https://www.linkedin.com/in/befekadu-berhanu/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#linkedin"/></svg></a>
+            <a class="soc brand" href="https://wa.me/251932900373" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#whatsapp"/></svg></a>
             <a class="soc" href="https://github.com/abawu" target="_blank" rel="noopener" aria-label="GitHub"><svg><use href="#github"/></svg></a>
             <a class="soc" href="mailto:befekaduberhanu4@gmail.com" aria-label="Email"><svg><use href="#mail"/></svg></a>
           </div>
@@ -554,7 +555,7 @@ footer .soc-label{border-color:var(--night-line);color:var(--night-ink)}
   </section>
 
   <!-- transition 3: unidirectional, solid -->
-  <div class="mq solid" data-marquee>
+  <div class="mq" data-marquee>
     <div class="mq-row" data-speed="80" data-reverse="true"><div class="mq-track"><div class="mq-group">
       <span>AI-enabled</span><i></i><span class="o">Built in Addis Ababa</span><i></i><span>Made for the world</span><i></i><span class="o">endebeto.com</span><i></i>
     </div></div></div>
@@ -651,7 +652,7 @@ footer .soc-label{border-color:var(--night-line);color:var(--night-ink)}
             <li><svg><use href="#globe"/></svg>Times shown in Addis Ababa time (EAT, UTC+3)</li>
             <li><svg><use href="#mail"/></svg>You'll receive a confirmation email from me</li>
           </ul>
-          <div class="socials"><a class="soc" href="https://www.linkedin.com/in/befekadu-berhanu/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#linkedin"/></svg></a><a class="soc" href="https://wa.me/251932900373" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#whatsapp"/></svg></a><a class="soc" href="mailto:befekaduberhanu4@gmail.com" aria-label="Email"><svg><use href="#mail"/></svg></a></div>
+          <div class="socials"><a class="soc brand" href="https://www.linkedin.com/in/befekadu-berhanu/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#linkedin"/></svg></a><a class="soc brand" href="https://wa.me/251932900373" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#whatsapp"/></svg></a><a class="soc" href="mailto:befekaduberhanu4@gmail.com" aria-label="Email"><svg><use href="#mail"/></svg></a></div>
           <div class="picked" id="picked"><small>Your selection</small><b id="pickedText">No time selected yet</b></div>
         </aside>
 
@@ -743,7 +744,7 @@ footer .soc-label{border-color:var(--night-line);color:var(--night-ink)}
 <!-- FOOTER -->
 <footer id="contact">
   <canvas id="waves" aria-hidden="true"></canvas>
-  <div class="mq night small" data-marquee style="border-bottom:1.5px solid var(--night-line)">
+  <div class="mq night small" data-marquee style="border-bottom:1px solid var(--night-line)">
     <div class="mq-row" data-speed="45"><div class="mq-track"><div class="mq-group">
       <span>Software engineering</span><i></i><span>AI products</span><i></i><span>Endebeto Tech</span><i></i><span>Mentorship</span><i></i><span>Cyber security</span><i></i>
     </div></div></div>
@@ -829,19 +830,19 @@ footer .soc-label{border-color:var(--night-line);color:var(--night-ink)}
      scroll direction changes, and speed up with scroll velocity. */
   const rows = [...document.querySelectorAll('[data-marquee] .mq-row')].map(row => {
     const track = row.querySelector('.mq-track'), group = track.querySelector('.mq-group');
-    return { row, track, group, x: 0, w: 0, speed: +row.dataset.speed || 60, rev: row.dataset.reverse === 'true', visible: false };
+    return { row, track, group, x: 0, w: 0, speed: (+row.dataset.speed || 60) * 0.45, v: 1, rev: row.dataset.reverse === 'true', visible: false };
   });
   const fill = () => rows.forEach(r => {
     r.track.querySelectorAll('.mq-group + .mq-group').forEach(n => n.remove());
     r.w = r.group.offsetWidth || 1;
     const copies = Math.ceil(innerWidth / r.w) + 1;
     for (let i = 0; i < copies; i++) { const c = r.group.cloneNode(true); c.setAttribute('aria-hidden', 'true'); r.track.appendChild(c); }
-    r.x = r.rev ? -r.w / 2 : 0;
+    r.x = r.rev ? -r.w / 2 : 0; r.v = r.rev ? -1 : 1;
   });
   let scrollDir = 1, lastY = scrollY, boost = 0;
   addEventListener('scroll', () => {
     const d = scrollY - lastY; lastY = scrollY;
-    if (d) { scrollDir = d > 0 ? 1 : -1; boost = Math.min(boost + Math.abs(d) * 0.08, 6); }
+    if (d) { scrollDir = d > 0 ? 1 : -1; boost = Math.min(boost + Math.abs(d) * 0.012, 1.2); }
   }, { passive: true });
   const vis = new IntersectionObserver(es => es.forEach(e => {
     const r = rows.find(x => x.row === e.target); if (r) r.visible = e.isIntersecting;
@@ -850,11 +851,12 @@ footer .soc-label{border-color:var(--night-line);color:var(--night-ink)}
   let prev = performance.now();
   const tick = now => {
     const dt = Math.min(now - prev, 50) / 1000; prev = now;
-    boost *= 0.94;
+    boost *= 0.95;
     rows.forEach(r => {
       if (!r.visible) return;
-      const dir = (r.rev ? -1 : 1) * scrollDir;
-      r.x -= dir * r.speed * (1 + boost) * dt;
+      // ease toward the new direction instead of snapping
+      r.v += ((r.rev ? -1 : 1) * scrollDir - r.v) * Math.min(dt * 2.5, 1);
+      r.x -= r.v * r.speed * (1 + boost) * dt;
       if (r.x <= -r.w) r.x += r.w;
       if (r.x > 0) r.x -= r.w;
       r.track.style.transform = `translate3d(${r.x.toFixed(1)}px,0,0)`;
