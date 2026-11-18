@@ -18,11 +18,13 @@
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
+    color-scheme:dark;
     --bg:#0b0c0f; --surface:#15171c; --ink:#f2f3f5; --muted:#9aa0ab; --line:#262931;
     --night:#15171c; --night-2:#1d2026; --night-line:#2c3038;
   }
 }
 :root[data-theme="dark"]{
+  color-scheme:dark;
   --bg:#0b0c0f; --surface:#15171c; --ink:#f2f3f5; --muted:#9aa0ab; --line:#262931;
   --night:#15171c; --night-2:#1d2026; --night-line:#2c3038;
 }
@@ -232,7 +234,7 @@ section{padding:110px 0}
 .step h3{font-size:1.45rem;letter-spacing:-.03em;margin-bottom:4px}
 .step .sub{color:var(--muted);font-size:.92rem;margin-bottom:22px}
 .month{font-weight:800;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
-.days{display:flex;gap:10px;overflow-x:auto;padding:2px 2px 8px;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.days{display:flex;gap:10px;overflow-x:auto;padding:2px 2px 8px;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
 .day{flex:none;width:76px;padding:12px 0;border-radius:16px;border:2px solid var(--line);background:var(--bg);text-align:center;cursor:pointer;font:inherit;color:inherit;scroll-snap-align:start;transition:all .2s}
 .day span,.day small{display:block;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .day b{display:block;font-size:1.55rem;font-weight:900;line-height:1.25;letter-spacing:-.03em}
@@ -259,6 +261,17 @@ section{padding:110px 0}
 .range-foot i{font-style:normal;font-size:.78rem}
 .full-btn{font:inherit;font-size:.78rem;font-weight:800;cursor:pointer;flex:none;padding:7px 13px;border-radius:999px;border:2px solid var(--line);background:transparent;color:var(--ink);transition:border-color .2s,color .2s}
 .full-btn:hover{border-color:var(--accent);color:var(--accent)}
+.range-btns{display:flex;gap:6px;flex:none}
+.day{position:relative}
+.day.has-sel::after{content:"";position:absolute;top:8px;right:8px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.range-foot .other-sel{color:var(--ink);font-weight:600}
+.sel-chip{display:flex;align-items:center;justify-content:space-between;gap:10px 14px;flex-wrap:wrap;border:2px solid var(--accent);border-radius:14px;padding:12px 16px;margin:-6px 0 22px;font-weight:700;font-size:.92rem;color:var(--ink)}
+.sel-chip>span{display:flex;align-items:center;gap:10px}
+.sel-chip svg{width:18px;height:18px;color:var(--accent);flex:none}
+.link-btn{font:inherit;font-size:.86rem;font-weight:800;color:var(--accent);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.picked .link-btn{color:inherit;margin-top:8px;display:none}
+.picked.has.editable .link-btn{display:inline-block}
+.done-actions{margin-top:22px;display:flex;justify-content:center;align-items:center;gap:8px 22px;flex-wrap:wrap}
 .step-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:28px;padding-top:22px;border-top:2px solid var(--line);flex-wrap:wrap}
 .step-foot .tz{font-size:.82rem;color:var(--muted);display:flex;gap:8px;align-items:center}
 .step-foot .tz svg{width:16px;height:16px}
@@ -653,7 +666,7 @@ footer .soc-label{border-color:var(--night-line);color:var(--night-ink)}
             <li><svg><use href="#mail"/></svg>You'll receive a confirmation email from me</li>
           </ul>
           <div class="socials"><a class="soc brand" href="https://www.linkedin.com/in/befekadu-berhanu/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#linkedin"/></svg></a><a class="soc brand" href="https://wa.me/251932900373" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#whatsapp"/></svg></a><a class="soc" href="mailto:befekaduberhanu4@gmail.com" aria-label="Email"><svg><use href="#mail"/></svg></a></div>
-          <div class="picked" id="picked"><small>Your selection</small><b id="pickedText">No time selected yet</b></div>
+          <div class="picked" id="picked"><small>Your selection</small><b id="pickedText">No time selected yet</b><br><button type="button" class="link-btn" id="pickedChange">Change time</button></div>
         </aside>
 
         <div class="book-main">
@@ -683,6 +696,7 @@ footer .soc-label{border-color:var(--night-line);color:var(--night-ink)}
           <form class="step" data-step="2" id="bookForm" novalidate>
             <h3>Tell me about you</h3>
             <p class="sub">Your contact details and what you'd like to discuss.</p>
+            <div class="sel-chip"><span><svg><use href="#cal"/></svg><span id="chipText"></span></span><button type="button" class="link-btn" id="chipChange">Change time</button></div>
             <div class="fgrid">
               <div class="field"><label for="bName">Full name</label><input id="bName" name="name" autocomplete="name" required><div class="msg">Please enter your name.</div></div>
               <div class="field"><label for="bEmail">Email</label><input id="bEmail" name="email" type="email" autocomplete="email" required><div class="msg">Please enter a valid email.</div></div>
@@ -723,7 +737,7 @@ footer .soc-label{border-color:var(--night-line);color:var(--night-ink)}
           <!-- step 3 -->
           <div class="step done" data-step="3">
             <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></div>
-            <h3>Request sent, thank you!</h3>
+            <h3 id="doneTitle">Request sent, thank you!</h3>
             <p class="sub">Befekadu has been notified about your meeting request.</p>
             <div class="recap" id="recap"></div>
             <div class="notice"><svg><use href="#mail"/></svg><span><b>Check your inbox.</b> A confirmation email from Befekadu will be sent to you soon with the final details<span id="linkNote"> and meeting link</span>.</span></div>
@@ -733,7 +747,7 @@ footer .soc-label{border-color:var(--night-line);color:var(--night-ink)}
               <a class="btn btn-ghost" id="calOutlook" target="_blank" rel="noopener"><svg><use href="#cal"/></svg>Outlook</a>
               <button class="btn btn-ghost" id="calIcs" type="button"><svg><use href="#download"/></svg>Apple / .ics</button>
             </div>
-            <div style="margin-top:22px"><button class="btn btn-link" id="againBtn" type="button">Book another time</button></div>
+            <div class="done-actions"><button class="link-btn" id="changeBtn" type="button">Need a different time? Change it</button><button class="btn btn-link" id="againBtn" type="button">Book a new meeting</button></div>
           </div>
         </div>
       </div>
@@ -957,18 +971,35 @@ footer .soc-label{border-color:var(--night-line);color:var(--night-ink)}
     const blocks = PERIODS[period];
     const start = slotStart(selDay, blocks[a]), end = slotStart(selDay, blocks[b]) + STEP * 6e4;
     sel = { day: selDay, period, a, b, start, end };
-    $('pickedText').textContent = whenLabel(sel);
+    $('pickedText').textContent = $('chipText').textContent = whenLabel(sel);
     $('picked').classList.add('has');
     $('toDetails').disabled = false;
     renderSlots();
   }
+  function clearSel() {
+    sel = null;
+    $('picked').classList.remove('has'); $('pickedText').textContent = 'No time selected yet';
+    $('toDetails').disabled = true;
+    renderSlots();
+  }
+  // show a given day in the picker (used when coming back to change the time)
+  function showDay(d) {
+    selDay = d;
+    dayBtns.forEach((x, i) => x.setAttribute('aria-pressed', days[i] === d));
+    const btn = dayBtns[days.indexOf(d)];
+    if (btn) daysEl.scrollLeft = btn.offsetLeft - daysEl.offsetLeft - 8;
+    renderSlots();
+  }
   function pick(period, i) {
     // 1st tap = start; 2nd tap in the same window = end of range; a further tap starts over
-    if (sel && sel.day === selDay && sel.period === period && sel.a === sel.b && i !== sel.a)
-      setRange(period, Math.min(sel.a, i), Math.max(sel.a, i));
+    // tapping the single selected block again clears it
+    const same = sel && sel.day === selDay && sel.period === period;
+    if (same && sel.a === sel.b && i === sel.a) return clearSel();
+    if (same && sel.a === sel.b) setRange(period, Math.min(sel.a, i), Math.max(sel.a, i));
     else setRange(period, i, i);
   }
   function renderSlots() {
+    dayBtns.forEach((x, i) => x.classList.toggle('has-sel', !!sel && days[i] === sel.day));
     Object.entries(PERIODS).forEach(([period, blocks]) => {
       const box = $(period + 'Slots'); box.innerHTML = '';
       const active = sel && sel.day === selDay && sel.period === period;
@@ -990,13 +1021,26 @@ footer .soc-label{border-color:var(--night-line);color:var(--night-ink)}
       const foot = document.createElement('div'); foot.className = 'range-foot';
       const info = document.createElement('span');
       if (active) {
-        info.innerHTML = `<b style="white-space:nowrap">${hhmm(sel.start)} – ${fT(sel.end, TZ)}</b> · <span style="white-space:nowrap">${durLabel(sel)}</span>` +
+        info.innerHTML = `<b style="white-space:nowrap">${hhmm(sel.start)} – ${fT(sel.end, TZ)}</b><br><span style="white-space:nowrap">${durLabel(sel)}</span>` +
           (sameZone ? '' : `<br><i>${fT(sel.start, localTZ)} – ${fT(sel.end, localTZ)} your time</i>`);
+      } else if (sel && sel.day !== selDay && period === 'am') {
+        info.className = 'other-sel';
+        info.textContent = `You picked ${fD(sel.start, { weekday: 'short', month: 'short', day: 'numeric' })}. Tap a time here to move it.`;
       } else info.textContent = sel && sel.day === selDay ? '' : 'Tap a start time, then an end time';
-      const full = document.createElement('button');
-      full.type = 'button'; full.className = 'full-btn'; full.textContent = 'Full window';
-      full.addEventListener('click', () => setRange(period, 0, blocks.length - 1));
-      foot.append(info, full);
+      const btns = document.createElement('div'); btns.className = 'range-btns';
+      if (active) {
+        const clr = document.createElement('button');
+        clr.type = 'button'; clr.className = 'full-btn'; clr.textContent = 'Clear';
+        clr.addEventListener('click', clearSel);
+        btns.append(clr);
+      }
+      if (!(active && sel.a === 0 && sel.b === blocks.length - 1)) {
+        const full = document.createElement('button');
+        full.type = 'button'; full.className = 'full-btn'; full.textContent = 'Full window';
+        full.addEventListener('click', () => setRange(period, 0, blocks.length - 1));
+        btns.append(full);
+      }
+      foot.append(info, btns);
       box.appendChild(foot);
     });
   }
@@ -1007,10 +1051,16 @@ footer .soc-label{border-color:var(--night-line);color:var(--night-ink)}
   const go = n => {
     document.querySelectorAll('.step').forEach(s => s.classList.toggle('on', +s.dataset.step === n));
     stepLis.forEach((li, i) => { li.classList.toggle('active', i + 1 === n); li.classList.toggle('done', i + 1 < n); });
+    $('picked').classList.toggle('editable', n !== 1);
     if (booker.getBoundingClientRect().top < 0) booker.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
   };
-  $('toDetails').addEventListener('click', () => { if (sel) { go(2); $('bName').focus({ preventScroll: true }); } });
-  $('backBtn').addEventListener('click', () => go(1));
+  $('toDetails').addEventListener('click', () => { if (sel) { $('reasonCount').textContent = `${$('bReason').value.length} / 300`; go(2); $('bName').focus({ preventScroll: true }); } });
+  // change the time from any step, keeping everything already typed
+  const changeTime = () => { if (sel) showDay(sel.day); go(1); };
+  $('backBtn').addEventListener('click', changeTime);
+  $('chipChange').addEventListener('click', changeTime);
+  $('pickedChange').addEventListener('click', changeTime);
+  let prevWhen = null;   // set once a request was sent, so a later change is marked as an update
 
   // form behaviour
   const form = $('bookForm');
@@ -1060,7 +1110,7 @@ footer .soc-label{border-color:var(--night-line);color:var(--night-ink)}
     const localWhen = sameZone ? '' : `${new Intl.DateTimeFormat('en-US', { timeZone: localTZ, weekday: 'short', month: 'short', day: 'numeric' }).format(sel.start)} ${fT(sel.start, localTZ)} – ${fT(sel.end, localTZ)} (${localTZ})`;
     const ownerCal = calLinks(`Meeting with ${d.name}`, `Reason: ${d.reason}\nContact: ${d.email} ${d.phone}`, where(d)).google;
     const payload = {
-      _subject: `New meeting request: ${d.name} · ${when}`,
+      _subject: `${prevWhen ? 'Updated' : 'New'} meeting request: ${d.name} · ${when}`,
       _template: 'table',
       _captcha: 'false',
       _autoresponse: `Hi ${d.name}, thank you for requesting a meeting with Befekadu Berhanu on ${when}. Your request has been received, and a confirmation email from Befekadu will be sent to you soon.`,
@@ -1071,6 +1121,7 @@ footer .soc-label{border-color:var(--night-line);color:var(--night-ink)}
       'Reason': d.reason, 'Expectations': d.expect || '-',
       'Add to your calendar': ownerCal
     };
+    if (prevWhen) payload['Replaces earlier request'] = prevWhen;
     btnEl.disabled = true; btnEl.classList.add('loading'); errEl.style.display = 'none';
     try {
       // the email service only accepts requests from a real website, not a file opened locally
@@ -1088,7 +1139,8 @@ footer .soc-label{border-color:var(--night-line);color:var(--night-ink)}
         const msg = String(out.message || `HTTP ${res.status}`);
         throw Object.assign(new Error(msg), { kind: /activat/i.test(msg) ? 'activation' : 'service' });
       }
-      showDone(d, when);
+      showDone(d, when, prevWhen);
+      prevWhen = when;
     } catch (err) {
       const body = Object.entries(payload).filter(([k]) => !k.startsWith('_')).map(([k, v]) => `${k}: ${v}`).join('\n');
       const mail = `<a href="mailto:${OWNER}?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(body)}">send your request by email</a>`;
@@ -1105,8 +1157,10 @@ footer .soc-label{border-color:var(--night-line);color:var(--night-ink)}
     }
   });
 
-  function showDone(d, when) {
+  function showDone(d, when, replaces) {
+    $('doneTitle').textContent = replaces ? 'Your new time was sent!' : 'Request sent, thank you!';
     const rows = [['When', when], ['Format', d.online ? `Online · ${d.tool}` : 'In person · Addis Ababa'], ['Name', d.name], ['Email', d.email]];
+    if (replaces) rows.splice(1, 0, ['Replaces', replaces]);
     if (d.phone) rows.push(['Phone', d.phone]);
     rows.push(['Reason', d.reason]);
     const recap = $('recap'); recap.innerHTML = '';
@@ -1132,10 +1186,10 @@ footer .soc-label{border-color:var(--night-line);color:var(--night-ink)}
     go(3);
   }
 
+  $('changeBtn').addEventListener('click', changeTime);
   $('againBtn').addEventListener('click', () => {
     form.reset(); syncFormat(); $('reasonCount').textContent = '0 / 300';
-    sel = null; $('picked').classList.remove('has'); $('pickedText').textContent = 'No time selected yet';
-    $('toDetails').disabled = true; renderSlots(); go(1);
+    prevWhen = null; clearSel(); showDay(days[0]); go(1);
   });
 })();
 </script>

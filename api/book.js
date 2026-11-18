@@ -8,10 +8,10 @@ const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '
 const SITE = 'https://befekadu.vercel.app';
 
 // ---- acknowledgement email sent to the client ----
-function clientText(name, summary) {
+function clientText(name, summary, updated) {
   return `Dear ${name},
 
-Thank you for reaching out and requesting a meeting. I have received your request and will review the details shortly.
+${updated ? 'Thank you for letting me know. I have received your new meeting time and will review it shortly.' : 'Thank you for reaching out and requesting a meeting. I have received your request and will review the details shortly.'}
 
 Your request
 ${summary.map(([k, v]) => `- ${k}: ${v}`).join('\n')}
@@ -29,7 +29,7 @@ Addis Ababa, Ethiopia
 endebeto.com | ${SITE.replace('https://', '')}`;
 }
 
-function clientHtml(name, summary) {
+function clientHtml(name, summary, updated) {
   const online = /online/i.test(summary.map(r => r[1]).join(' '));
   const rows = summary.map(([k, v]) => `
     <tr>
@@ -46,9 +46,9 @@ function clientHtml(name, summary) {
     </td></tr>
     <tr><td style="padding:32px 32px 8px;color:#33373d;font-size:15px;line-height:1.65">
       <p style="margin:0 0 16px">Dear ${esc(name)},</p>
-      <p style="margin:0 0 22px">Thank you for reaching out and requesting a meeting. I have received your request and will review the details shortly.</p>
+      <p style="margin:0 0 22px">${updated ? 'Thank you for letting me know. I have received your new meeting time and will review it shortly.' : 'Thank you for reaching out and requesting a meeting. I have received your request and will review the details shortly.'}</p>
       <div style="border:1px solid #e6e2d9;border-left:4px solid #3448FF;border-radius:10px;padding:14px 20px;margin:0 0 22px">
-        <div style="font-size:11px;font-weight:bold;letter-spacing:1.4px;text-transform:uppercase;color:#3448FF;margin-bottom:4px">Your request</div>
+        <div style="font-size:11px;font-weight:bold;letter-spacing:1.4px;text-transform:uppercase;color:#3448FF;margin-bottom:4px">${updated ? 'Your updated request' : 'Your request'}</div>
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${rows}</table>
       </div>
       <p style="margin:0 0 6px;font-weight:bold;color:#15171b">What happens next</p>
@@ -97,8 +97,10 @@ module.exports = async (req, res) => {
     `<tr><td style="padding:10px 14px;border-bottom:1px solid #eee;color:#666;white-space:nowrap;vertical-align:top">${esc(k)}</td><td style="padding:10px 14px;border-bottom:1px solid #eee;font-weight:600">${esc(v).replace(/\n/g, '<br>')}</td></tr>`).join('');
   const when = String(b['Requested time (EAT)'] || '').slice(0, 200);
   const field = k => String(b[k] || '').slice(0, 300);
+  const prev = String(b['Replaces earlier request'] || '').slice(0, 200);
   const summary = [
     ['Date & time', when],
+    ['Previous time', prev],
     ['Format', [field('Meeting format'), field('Tool / place')].filter(Boolean).join(' · ')],
     ['Topic', field('Reason')]
   ].filter(([, v]) => v && v !== '-');
@@ -110,10 +112,10 @@ module.exports = async (req, res) => {
       from: `"Website booking" <${user}>`,
       to: user,
       replyTo: `"${name.replace(/"/g, '')}" <${email}>`,
-      subject: `New meeting request: ${name} · ${when}`,
+      subject: `${prev ? 'Updated' : 'New'} meeting request: ${name} · ${when}`,
       text: rows.map(([k, v]) => `${k}: ${v}`).join('\n'),
       html: `<div style="font-family:Arial,sans-serif;max-width:620px">
-        <h2 style="margin:0 0 6px">New meeting request</h2>
+        <h2 style="margin:0 0 6px">${prev ? 'Updated meeting request (new time)' : 'New meeting request'}</h2>
         <p style="margin:0 0 16px;color:#555">Reply to this email to confirm with ${esc(name)}.</p>
         <table style="border-collapse:collapse;width:100%;font-size:14px">${tableRows}</table>
         ${calRow ? `<p style="margin:20px 0"><a href="${esc(calRow[1])}" style="background:#3448FF;color:#fff;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:bold">Add to my Google Calendar</a></p>` : ''}
@@ -125,9 +127,9 @@ module.exports = async (req, res) => {
       from: `"Befekadu Berhanu" <${user}>`,
       to: email,
       replyTo: user,
-      subject: 'Meeting request received | Befekadu Berhanu',
-      text: clientText(name, summary),
-      html: clientHtml(name, summary)
+      subject: `${prev ? 'Updated meeting request' : 'Meeting request'} received | Befekadu Berhanu`,
+      text: clientText(name, summary, !!prev),
+      html: clientHtml(name, summary, !!prev)
     });
 
     return send(res, 200, { success: 'true' });
