@@ -63,6 +63,14 @@ h1{font-size:30pt;letter-spacing:-.05em;margin:2.5mm 0 1.5mm;line-height:1}
 .card .org{font-size:7.2pt;font-weight:600;opacity:.75;margin-bottom:1.3mm}
 .card p{font-size:7.8pt;opacity:.92;line-height:1.45}
 
+/* projects */
+.projects{margin-bottom:5mm}
+.proj{display:grid;grid-template-columns:42mm 1fr;gap:4mm;padding:2.6mm 0;border-top:.3mm solid var(--line)}
+.proj:first-child{border-top:0;padding-top:0}
+.proj h3{font-size:9.6pt;letter-spacing:-.02em}
+.proj .tag{display:block;font-size:5.9pt;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin-top:1.2mm}
+.proj p{font-size:7.8pt;color:#2b2e35;line-height:1.45}
+
 /* awards */
 .awards{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:3mm}
 .award{border:.4mm solid var(--ink);border-radius:3.5mm;padding:3mm 3.4mm}
@@ -181,6 +189,14 @@ footer svg.waves{position:absolute;inset:0;width:100%;height:100%}
           <div class="org">Mentoring emerging developers and tech talent</div>
           <p>Guiding engineers through real-world projects, code reviews and career growth, with a focus on secure, production-ready software.</p>
         </div>
+      </div>
+    </div>
+
+    <div class="label">Featured project</div>
+    <div class="projects">
+      <div class="proj">
+        <div><h3>Agriculture platform</h3><span class="tag">Award-winning · 2025</span></div>
+        <p>A digital platform that connects farmers with agricultural stakeholders. Named Innovative Project of the Year by the Ministry of Innovation &amp; Technology.</p>
       </div>
     </div>
 
